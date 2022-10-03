@@ -5,7 +5,13 @@ class TitleFrame extends JFrame {
     public TitleFrame() {
 
         setTitle("MILO");
-        setSize(1250, 1000);
+        setSize(500, 700);
+
+
+        TitlePanel mainPanel = new TitlePanel();
+
+
+        add(mainPanel);
 
         setVisible(true);
         setLocationRelativeTo(null);
