@@ -7,15 +7,15 @@ class TitleFrame extends JFrame {
         setTitle("MILO");
         setSize(500, 700);
 
-
         TitlePanel mainPanel = new TitlePanel();
-
 
         add(mainPanel);
 
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        PersonPanel PIFrame = new PersonPanel();
     }
 
 }

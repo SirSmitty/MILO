@@ -1,8 +1,13 @@
 import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+// implements ActionListener 
 class TitlePanel extends JPanel {
     public TitlePanel() {
 
@@ -39,6 +44,8 @@ class TitlePanel extends JPanel {
         add(calorieTracker);
         add(dailyIntake);
         add(workoutPlan);
+        // end title panel creating frames
+        JFrame topFrame = (JFrame) SwingUtilities.getUnwrappedParent(this);
 
     }
 }
