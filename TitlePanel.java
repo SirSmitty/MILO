@@ -3,7 +3,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
-
 class TitlePanel extends JPanel {
     public TitlePanel() {
 
@@ -24,18 +23,18 @@ class TitlePanel extends JPanel {
         JButton workoutPlan = new JButton("workout plan");
         personInput.setLocation(buttonX, buttonY);
         personInput.setSize(buttonWidth, buttonHeight);
-        buttonY+= 75;
+        buttonY += 75;
         calorieTracker.setLocation(buttonX, buttonY);
         calorieTracker.setSize(buttonWidth, buttonHeight);
-        buttonY+= 75;
+        buttonY += 75;
         dailyIntake.setLocation(buttonX, buttonY);
-        dailyIntake.setSize(buttonWidth,buttonHeight);
-        buttonY+= 75;
+        dailyIntake.setSize(buttonWidth, buttonHeight);
+        buttonY += 75;
         workoutPlan.setLocation(buttonX, buttonY);
-        workoutPlan.setSize(buttonWidth,buttonHeight);
+        workoutPlan.setSize(buttonWidth, buttonHeight);
 
         add(miloLabel);
-        
+
         add(personInput);
         add(calorieTracker);
         add(dailyIntake);
@@ -43,4 +42,3 @@ class TitlePanel extends JPanel {
 
     }
 }
-
