@@ -14,8 +14,8 @@ class TitlePanel extends JPanel {
         setBackground(Color.WHITE);
         setLayout(null);
         JLabel miloLabel = new JLabel("MILO");
-        miloLabel.setLocation(200, 50);
-        miloLabel.setSize(150, 50);
+        miloLabel.setLocation(230, 120);
+        miloLabel.setSize(250, 80);
         // miloLabel.setVisible(true);
         JButton personInput = new JButton("personInput");
         JButton calorieTracker = new JButton("calorietracker");
