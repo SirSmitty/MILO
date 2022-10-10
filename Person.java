@@ -1,5 +1,6 @@
 public class Person {
 
+    private int age;
     private int heightFeet;
     private int heightInches;
     private int weight;
@@ -14,6 +15,7 @@ public class Person {
 
     public Person() {
 
+        setAge(18);
         setheightFeet(5);
         setheightInches(9);
         setWeight(165);
@@ -21,13 +23,18 @@ public class Person {
         setGoals("Maintain");
     }
 
-    public Person(int heightFeet, int heightInches, int weight, String activityLevel, String goals) {
+    public Person(int age, int heightFeet, int heightInches, int weight, String activityLevel, String goals) {
 
+        setAge(age);
         setheightFeet(heightFeet);
         setheightInches(heightInches);
         setWeight(weight);
         setActivityLevel(activityLevel);
         setGoals(goals);
+    }
+
+    public int getAge(){
+        return age;
     }
 
     public int getheightFeetInInches() {
@@ -60,6 +67,10 @@ public class Person {
 
     public int getBMR() {
         return bmr;
+    }
+
+    public void setAge(int a){
+        age = a;
     }
 
     public void setheightFeet(int hf) {
