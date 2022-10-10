@@ -9,6 +9,9 @@ import java.awt.event.ActionListener;
 
 // implements ActionListener 
 class TitlePanel extends JPanel {
+
+    JButton personInput;
+
     public TitlePanel() {
 
         int buttonX = 150;
@@ -22,7 +25,7 @@ class TitlePanel extends JPanel {
         miloLabel.setLocation(230, 120);
         miloLabel.setSize(250, 80);
         // miloLabel.setVisible(true);
-        JButton personInput = new JButton("personInput");
+        personInput = new JButton("personInput");
         JButton calorieTracker = new JButton("calorietracker");
         JButton dailyIntake = new JButton("dailyintake");
         JButton workoutPlan = new JButton("workout plan");
@@ -45,7 +48,11 @@ class TitlePanel extends JPanel {
         add(dailyIntake);
         add(workoutPlan);
         // end title panel creating frames
-        JFrame topFrame = (JFrame) SwingUtilities.getUnwrappedParent(this);
+        // JFrame topFrame = (JFrame) SwingUtilities.getUnwrappedParent(this);
 
+    }
+
+    public JButton getPersonButton() {
+        return personInput;
     }
 }
