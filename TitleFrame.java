@@ -33,6 +33,7 @@ class TitleFrame extends JFrame {
         // cards.show(container, "main");
 
         setVisible(true);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
