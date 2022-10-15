@@ -18,14 +18,18 @@ public class PersonPanel extends JPanel {
         JLabel ageLabel = new JLabel("Age:");
         JTextField ageTField = new JTextField();
 
-        ageLabel.setLocation(100, 120);
+        // Age Label
+        ageLabel.setLocation(105, 120);
         ageLabel.setSize(50, 40);
         add(ageLabel);
 
-        ageTField.setLocation(150, 120);
+        // Age Text Field
+        ageTField.setLocation(155, 120);
         ageTField.setSize(100, 40);
+        ageTField.setBackground(Color.GRAY);
         add(ageTField);
 
+        // logic for calculating ft/inches
         Integer feet[] = { 4, 5, 6, 7 };
         Integer inches[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
         JLabel heightLabel = new JLabel("Height:");
@@ -34,32 +38,40 @@ public class PersonPanel extends JPanel {
         JComboBox<Integer> feetCombo = new JComboBox<>(feet);
         JComboBox<Integer> inchCombo = new JComboBox<>(inches);
 
-        heightLabel.setLocation(100, 200);
+        // Height Label
+        heightLabel.setLocation(92, 200);
         heightLabel.setSize(50, 40);
         add(heightLabel);
 
-        feetCombo.setLocation(150, 200);
+        // Feet drop down
+        feetCombo.setLocation(145, 200);
         feetCombo.setSize(60, 40);
         add(feetCombo);
-        feetLabel.setLocation(210, 200);
+        // Feet Label
+        feetLabel.setLocation(205, 200);
         feetLabel.setSize(40, 40);
         add(feetLabel);
 
-        inchCombo.setLocation(250, 200);
+        // Inch drop combo
+        inchCombo.setLocation(245, 200);
         inchCombo.setSize(70, 40);
         add(inchCombo);
-        inchLabel.setLocation(320, 200);
+        // Inch
+        inchLabel.setLocation(315, 200);
         inchLabel.setSize(40, 40);
         add(inchLabel);
 
+        // Weight label
         JLabel weightLabel = new JLabel("Weight:");
         JTextField weightTFLabel = new JTextField();
 
-        weightLabel.setLocation(100, 360);
+        // Weight Label
+        weightLabel.setLocation(90, 280);
         weightLabel.setSize(50, 40);
         add(weightLabel);
 
-        weightTFLabel.setLocation(150, 360);
+        // Weight TF Label
+        weightTFLabel.setLocation(140, 280);
         weightTFLabel.setSize(100, 40);
         add(weightTFLabel);
 
@@ -68,11 +80,13 @@ public class PersonPanel extends JPanel {
         JLabel actLevel = new JLabel("Activity Level:");
         JComboBox actCombo = new JComboBox(activityLevelsOptions);
 
-        actLevel.setLocation(50, 440);
+        // ActivityLabelDrop
+        actLevel.setLocation(50, 360);
         actLevel.setSize(100, 40);
         add(actLevel);
 
-        actCombo.setLocation(150, 440);
+        // Activity Level Label
+        actCombo.setLocation(150, 360);
         actCombo.setSize(100, 40);
         add(actCombo);
 
@@ -80,11 +94,13 @@ public class PersonPanel extends JPanel {
         JLabel goalsLabel = new JLabel("Goals:");
         JComboBox goalsCombo = new JComboBox(goalsOptions);
 
-        goalsLabel.setLocation(100, 520);
+        // Goals Label
+        goalsLabel.setLocation(100, 420);
         goalsLabel.setSize(50, 40);
         add(goalsLabel);
 
-        goalsCombo.setLocation(200, 520);
+        // Goals Combo
+        goalsCombo.setLocation(150, 420);
         goalsCombo.setSize(100, 40);
         add(goalsCombo);
 
