@@ -3,14 +3,19 @@ import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.*;
+import javax.swing.BorderFactory;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.*;
 
 public class PersonPanel extends JPanel {
 
     JButton backButton;
 
-    PersonPanel() {
+    PersonPanel(Vector<Person> p) {
         setBackground(Color.WHITE);
         setLayout(null);
+
         // JLabel personLabel = new JLabel("This is the PersonPanel");
         // personLabel.setLocation(230, 120);
         // personLabel.setSize(250, 80);
@@ -24,9 +29,8 @@ public class PersonPanel extends JPanel {
         add(ageLabel);
 
         // Age Text Field
-        ageTField.setLocation(155, 120);
+        ageTField.setLocation(135, 120);
         ageTField.setSize(100, 40);
-        ageTField.setBackground(Color.GRAY);
         add(ageTField);
 
         // logic for calculating ft/inches
@@ -104,16 +108,41 @@ public class PersonPanel extends JPanel {
         goalsCombo.setSize(100, 40);
         add(goalsCombo);
 
+        // back button
         backButton = new JButton("<-");
         backButton.setLocation(50, 600);
         backButton.setSize(50, 50);
-
-        // add(personLabel);
         add(backButton);
+
+        // submit button
+        JButton submitButton = new JButton("Submit");
+        submitButton.setLocation(130, 500);
+        submitButton.setSize(120, 50);
+        add(submitButton);
+
+        // add new person
+        submitButton.addActionListener((ActionEvent e) -> {
+            int personAge = Integer.parseInt(ageTField.getText());
+            int personHeightFeet = feet[feetCombo.getSelectedIndex()];
+            int personHeightInches = inches[inchCombo.getSelectedIndex()];
+            int personWeight = Integer.parseInt(weightTFLabel.getText());
+            String personActivityLevel = activityLevelsOptions[actCombo.getSelectedIndex()];
+            String personGoals = goalsOptions[goalsCombo.getSelectedIndex()];
+
+            Person newPerson = new Person(personAge, personHeightFeet, personHeightFeet,
+                    personWeight,
+                    personActivityLevel, personGoals);
+
+            // System.out.println(personGoals);
+            p.add(newPerson);
+            System.out.println(p);
+        });
+
         setVisible(true);
     }
 
     public JButton getBackButton() {
         return backButton;
     }
+
 }

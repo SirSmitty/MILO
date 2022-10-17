@@ -33,7 +33,7 @@ public class Person {
         setGoals(goals);
     }
 
-    public int getAge(){
+    public int getAge() {
         return age;
     }
 
@@ -69,7 +69,7 @@ public class Person {
         return bmr;
     }
 
-    public void setAge(int a){
+    public void setAge(int a) {
         age = a;
     }
 

@@ -2,10 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.*;
 
 class TitleFrame extends JFrame {
 
     public TitleFrame() {
+        Vector<Person> people = new Vector();
 
         setTitle("MILO");
         setSize(500, 700);
@@ -17,7 +19,7 @@ class TitleFrame extends JFrame {
         container.setLayout(cards);
 
         TitlePanel mainPanel = new TitlePanel();
-        PersonPanel personPanel = new PersonPanel();
+        PersonPanel personPanel = new PersonPanel(people);
 
         mainPanel.getPersonButton().addActionListener((ActionEvent e) -> {
             cards.show(container, "person");
