@@ -1,5 +1,6 @@
 public class Person {
 
+    private String name;
     private int age;
     private int heightFeet;
     private int heightInches;
@@ -15,6 +16,7 @@ public class Person {
 
     public Person() {
 
+        setName("N/A");
         setAge(18);
         setheightFeet(5);
         setheightInches(9);
@@ -31,6 +33,10 @@ public class Person {
         setWeight(weight);
         setActivityLevel(activityLevel);
         setGoals(goals);
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getAge() {
@@ -67,6 +73,10 @@ public class Person {
 
     public int getBMR() {
         return bmr;
+    }
+
+    public void setName(String n) {
+        name = n;
     }
 
     public void setAge(int a) {

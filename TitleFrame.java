@@ -27,12 +27,11 @@ class TitleFrame extends JFrame {
 
         personPanel.getBackButton().addActionListener((ActionEvent e) -> {
             cards.show(container, "main");
+            System.out.println(people);
         });
 
         add(mainPanel, "main");
         add(personPanel, "person");
-
-        // cards.show(container, "main");
 
         setVisible(true);
         setResizable(false);
