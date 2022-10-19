@@ -8,6 +8,7 @@ class TitleFrame extends JFrame {
 
     public TitleFrame() {
         Vector<Person> people = new Vector();
+        people.add(new Person());
 
         setTitle("MILO");
         setSize(500, 700);
@@ -20,18 +21,27 @@ class TitleFrame extends JFrame {
 
         TitlePanel mainPanel = new TitlePanel();
         PersonPanel personPanel = new PersonPanel(people);
+        CTPanel CTPanel = new CTPanel(people);
+
+        add(mainPanel, "main");
+        add(personPanel, "person");
+        add(CTPanel, "Calorie Tracker");
 
         mainPanel.getPersonButton().addActionListener((ActionEvent e) -> {
             cards.show(container, "person");
         });
 
-        personPanel.getBackButton().addActionListener((ActionEvent e) -> {
-            cards.show(container, "main");
-            System.out.println(people);
+        mainPanel.getCTButton().addActionListener((ActionEvent e) -> {
+            cards.show(container, "Calorie Tracker");
         });
 
-        add(mainPanel, "main");
-        add(personPanel, "person");
+        personPanel.getBackButton().addActionListener((ActionEvent e) -> {
+            cards.show(container, "main");
+        });
+
+        CTPanel.getBackButton().addActionListener((ActionEvent e) -> {
+            cards.show(container, "main");
+        });
 
         setVisible(true);
         setResizable(false);

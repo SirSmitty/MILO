@@ -16,15 +16,20 @@ public class CTPanel extends JPanel {
 
         Person test = p.get(0);
 
-    }
+        test.calculateCalories();
+        test.calculateProtein();
+        test.calculateCarbs();
+        test.calculateFats();
 
-    public void calculateCalories(Person test) {
-        int calories = (int) ((10 * test.getWeight()) + (6.25 * test.getCmHeight()) - (5 * test.getAge()) - 161);
-        test.setCalories(calories);
-    }
+        setBackground(Color.WHITE);
+        setLayout(null);
 
-    public void calculateProtein(Person test) {
-        int protein = (int) (.4 * test.getCalories());
+        backButton = new JButton("<-");
+        backButton.setLocation(50, 600);
+        backButton.setSize(50, 50);
+        add(backButton);
+
+        setVisible(true);
 
     }
 

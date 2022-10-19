@@ -74,6 +74,18 @@ public class Person {
         return calories;
     }
 
+    public int getProtein() {
+        return protein;
+    }
+
+    public int getCarbs() {
+        return calories;
+    }
+
+    public int getFats() {
+        return fats;
+    }
+
     public void setName(String n) {
         name = n;
     }
@@ -102,8 +114,52 @@ public class Person {
         goals = g;
     }
 
-    public int setCalories(int c) {
-        return calories = c;
+    public void setCalories(int c) {
+        calories = c;
+    }
+
+    public void setProtein(int p) {
+        protein = p;
+    }
+
+    public void setCarbs(int c) {
+        carbs = c;
+    }
+
+    public void setFats(int f) {
+        fats = f;
+    }
+
+    public void calculateCalories() {
+        int calories = (int) ((10 * getWeight()) + (6.25 * getCmHeight()) - (5 * getAge()) - 161);
+        setCalories(calories);
+    }
+
+    public void calculateProtein() {
+        double multiplier = .4;
+        if (getGoals() == "Gain" || getGoals() == "Lose") {
+            multiplier = .45;
+        }
+        int protein = (int) (multiplier * getCalories());
+        setProtein(protein);
+    }
+
+    public void calculateCarbs() {
+        double multiplier = .3;
+        if (getGoals() == "Gain") {
+            multiplier = .35;
+        }
+        int carbs = (int) (multiplier * getCalories());
+        setCarbs(carbs);
+    }
+
+    public void calculateFats() {
+        double multiplier = .3;
+        if (getGoals() == "Gain" || getGoals() == "Lose") {
+            multiplier = .25;
+        }
+        int fats = (int) (multiplier * getCalories());
+        setFats(fats);
     }
 
 }
