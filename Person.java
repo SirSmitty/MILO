@@ -8,7 +8,6 @@ public class Person {
     private String activityLevel;
     private String goals;
 
-    private int bmr;
     private int calories;
     private int protein;
     private int carbs;
@@ -71,8 +70,8 @@ public class Person {
         return goals;
     }
 
-    public int getBMR() {
-        return bmr;
+    public int getCalories() {
+        return calories;
     }
 
     public void setName(String n) {
@@ -103,8 +102,8 @@ public class Person {
         goals = g;
     }
 
-    public void setBMR(int b) {
-        bmr = b;
+    public int setCalories(int c) {
+        return calories = c;
     }
 
 }
