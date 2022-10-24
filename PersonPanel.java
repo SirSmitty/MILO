@@ -79,8 +79,8 @@ public class PersonPanel extends JPanel {
         weightTFLabel.setSize(100, 40);
         add(weightTFLabel);
 
-        String activityLevelsOptions[] = { "low (1 workout / week)", "medium(2-3 workouts / week)",
-                "high (4-5 workouts / week)", "extremely high (6+ workouts / week)" };
+        String activityLevelsOptions[] = { "Low (1 workout / week)", "Medium(2-3 workouts / week)",
+                "High (4-5 workouts / week)", "Extremely High (6+ workouts / week)" };
         JLabel actLevel = new JLabel("Activity Level:");
         JComboBox actCombo = new JComboBox(activityLevelsOptions);
 

@@ -16,12 +16,16 @@ public class Person {
     public Person() {
 
         setName("N/A");
-        setAge(18);
+        setAge(23);
         setheightFeet(5);
         setheightInches(9);
-        setWeight(165);
-        setActivityLevel("Medium(2-3 workouts / week)");
+        setWeight(195);
+        setActivityLevel("High (4-5 workouts / week)");
         setGoals("Maintain");
+        calculateCalories();
+        calculateProtein();
+        calculateCarbs();
+        calculateFats();
     }
 
     public Person(int age, int heightFeet, int heightInches, int weight, String activityLevel, String goals) {
@@ -32,6 +36,10 @@ public class Person {
         setWeight(weight);
         setActivityLevel(activityLevel);
         setGoals(goals);
+        calculateCalories();
+        calculateProtein();
+        calculateCarbs();
+        calculateFats();
     }
 
     public String getName() {
@@ -79,7 +87,7 @@ public class Person {
     }
 
     public int getCarbs() {
-        return calories;
+        return carbs;
     }
 
     public int getFats() {
@@ -131,7 +139,34 @@ public class Person {
     }
 
     public void calculateCalories() {
-        int calories = (int) ((10 * getWeight()) + (6.25 * getCmHeight()) - (5 * getAge()) - 161);
+        int calories = (int) ((10 * getKbWeight()) + (6.25 * getCmHeight()) - (5 * getAge()) - 161);
+        switch (getActivityLevel()) {
+            case ("Low (1 workout / week)"):
+                calories *= 1.4;
+                break;
+            case ("Medium(2-3 workouts / week)"):
+                calories *= 1.7;
+                break;
+            case ("High (4-5 workouts / week)"):
+                calories *= 2.0;
+                break;
+            case ("Extremely High (6+ workouts / week)"):
+                calories *= 2.3;
+                break;
+        }
+
+        switch (getGoals()) {
+            case ("Gain"):
+                calories *= 1.2;
+                break;
+            case ("Lose"):
+                calories *= .8;
+                break;
+            default:
+                break;
+
+        }
+
         setCalories(calories);
     }
 
@@ -141,6 +176,7 @@ public class Person {
             multiplier = .45;
         }
         int protein = (int) (multiplier * getCalories());
+        protein /= 4;
         setProtein(protein);
     }
 
@@ -150,6 +186,7 @@ public class Person {
             multiplier = .35;
         }
         int carbs = (int) (multiplier * getCalories());
+        carbs /= 4;
         setCarbs(carbs);
     }
 
@@ -159,6 +196,7 @@ public class Person {
             multiplier = .25;
         }
         int fats = (int) (multiplier * getCalories());
+        fats /= 9;
         setFats(fats);
     }
 
