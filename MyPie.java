@@ -7,10 +7,11 @@ import java.awt.Rectangle;
 class MyPie extends JComponent {
   private Slice[] slices = new Slice[3];;
 
-  MyPie(Person person) {
-    Slice proteinSlice = new Slice(person.getProtein(), Color.BLUE);
-    Slice carbsSlice = new Slice(person.getCarbs(), Color.RED);
-    Slice fatsSlice = new Slice(person.getFats(), Color.GREEN);
+  public MyPie(Person p) {
+    CalorieCalculator calc = p.getCalculator();
+    Slice proteinSlice = new Slice(calc.getProtein(), Color.BLUE);
+    Slice carbsSlice = new Slice(calc.getCarbs(), Color.RED);
+    Slice fatsSlice = new Slice(calc.getFats(), Color.GREEN);
     slices[0] = proteinSlice;
     slices[1] = carbsSlice;
     slices[2] = fatsSlice;

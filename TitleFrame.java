@@ -7,8 +7,8 @@ import java.util.*;
 class TitleFrame extends JFrame {
 
     public TitleFrame() {
-        Vector<Person> people = new Vector();
-        people.add(new Person());
+        UserManager uManager = new UserManager();
+        uManager.addPerson(new Person());
 
         setTitle("MILO");
         setSize(500, 700);
@@ -20,8 +20,8 @@ class TitleFrame extends JFrame {
         container.setLayout(cards);
 
         TitlePanel mainPanel = new TitlePanel();
-        PersonPanel personPanel = new PersonPanel(people);
-        CTPanel CTPanel = new CTPanel(people);
+        PersonPanel personPanel = new PersonPanel(uManager);
+        CTPanel CTPanel = new CTPanel(uManager);
 
         add(mainPanel, "main");
         add(personPanel, "person");

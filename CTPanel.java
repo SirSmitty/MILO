@@ -1,26 +1,21 @@
 import javax.swing.JPanel;
 import java.awt.*;
+import javax.swing.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.*;
-import javax.swing.BorderFactory;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.*;
 
 public class CTPanel extends JPanel {
 
     JButton backButton;
     MyPie pieGraph;
 
-    CTPanel(Vector<Person> p) {
+    public CTPanel(UserManager uManager) {
         setBackground(Color.WHITE);
         setLayout(null);
-        Person test = p.get(0);
-        // Graphics g = new Graphics();
-        // pieGraph = new MyPie(test);
+        Person test = uManager.getPerson(0);
+        CalorieCalculator calculator = test.getCalculator();
+        pieGraph = new MyPie(test);
 
-        // pieGraph.drawPie(Graphics g, new Rectangle(150, 200, 200, 200));
         backButton = new JButton("<-");
         backButton.setLocation(50, 600);
         backButton.setSize(50, 50);
@@ -34,7 +29,7 @@ public class CTPanel extends JPanel {
         Calories.setSize(150, 50);
         add(Calories);
         // calorie count label
-        String calCount = Integer.toString(test.getCalories());
+        String calCount = Integer.toString(calculator.getCalories());
         JLabel calorieCountLabel = new JLabel(calCount);
         calorieCountLabel.setLocation(100, 190);
         calorieCountLabel.setSize(50, 100);
@@ -46,7 +41,7 @@ public class CTPanel extends JPanel {
         Protein.setSize(150, 50);
         add(Protein);
         // protein count label
-        String proteinCount = Integer.toString(test.getProtein());
+        String proteinCount = Integer.toString(calculator.getProtein());
         JLabel proteinCountLabel = new JLabel(proteinCount);
         proteinCountLabel.setLocation(100, 250);
         proteinCountLabel.setSize(50, 100);
@@ -58,7 +53,7 @@ public class CTPanel extends JPanel {
         Carbs.setSize(150, 50);
         add(Carbs);
         // carbs count label
-        String carbsCount = Integer.toString(test.getCarbs());
+        String carbsCount = Integer.toString(calculator.getCarbs());
         JLabel carbsCountLabel = new JLabel(carbsCount);
         carbsCountLabel.setLocation(100, 310);
         carbsCountLabel.setSize(50, 100);
@@ -70,17 +65,16 @@ public class CTPanel extends JPanel {
         Fats.setSize(150, 50);
         add(Fats);
         // fats count label
-        String FatsCount = Integer.toString(test.getFats());
+        String FatsCount = Integer.toString(calculator.getFats());
         JLabel fatsCountLabel = new JLabel(FatsCount);
         fatsCountLabel.setLocation(100, 370);
         fatsCountLabel.setSize(50, 100);
         add(fatsCountLabel);
-
-        // test.getProtein();
-        // test.getCarbs();
-        // test.calculateFats();
-
     }
+
+    // public void paintComponent(Graphics g) {
+    //     pieGraph.drawPie((Graphics2D) g, new Rectangle(150, 200, 200, 200));
+    // }
 
     public JButton getBackButton() {
         return backButton;

@@ -12,7 +12,7 @@ public class PersonPanel extends JPanel {
 
     JButton backButton;
 
-    PersonPanel(Vector<Person> p) {
+    public PersonPanel(UserManager uManager) {
         setBackground(Color.WHITE);
         setLayout(null);
 
@@ -134,8 +134,7 @@ public class PersonPanel extends JPanel {
                     personActivityLevel, personGoals);
 
             // System.out.println(personGoals);
-            p.add(newPerson);
-            System.out.println(p);
+            uManager.addPerson(newPerson);
         });
 
         setVisible(true);
