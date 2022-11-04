@@ -16,10 +16,6 @@ public class PersonPanel extends JPanel {
         setBackground(Color.WHITE);
         setLayout(null);
 
-        // JLabel personLabel = new JLabel("This is the PersonPanel");
-        // personLabel.setLocation(230, 120);
-        // personLabel.setSize(250, 80);
-
         JLabel ageLabel = new JLabel("Age:");
         JTextField ageTField = new JTextField();
 
@@ -110,7 +106,7 @@ public class PersonPanel extends JPanel {
 
         // back button
         backButton = new JButton("<-");
-        backButton.setLocation(50, 600);
+        backButton.setLocation(27, 600);
         backButton.setSize(50, 50);
         add(backButton);
 
@@ -129,11 +125,10 @@ public class PersonPanel extends JPanel {
             String personActivityLevel = activityLevelsOptions[actCombo.getSelectedIndex()];
             String personGoals = goalsOptions[goalsCombo.getSelectedIndex()];
 
-            Person newPerson = new Person(personAge, personHeightFeet, personHeightFeet,
+            Person newPerson = new Person("Jim", personAge, personHeightFeet, personHeightFeet,
                     personWeight,
                     personActivityLevel, personGoals);
 
-            // System.out.println(personGoals);
             uManager.addPerson(newPerson);
         });
 

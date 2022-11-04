@@ -10,7 +10,6 @@ public class Person {
 
     private CalorieCalculator calculator;
 
-
     public Person() {
 
         setName("N/A");
@@ -21,11 +20,13 @@ public class Person {
         setActivityLevel("High (4-5 workouts / week)");
         setGoals("Maintain");
         calculator = new CalorieCalculator(this);
-        
+
     }
 
-    public Person(int age, int heightFeet, int heightInches, int weight, String activityLevel, String goals) {
+    public Person(String name, int age, int heightFeet, int heightInches, int weight, String activityLevel,
+            String goals) {
 
+        setName(name);
         setAge(age);
         setheightFeet(heightFeet);
         setheightInches(heightInches);
@@ -70,7 +71,7 @@ public class Person {
         return goals;
     }
 
-    public CalorieCalculator getCalculator(){
+    public CalorieCalculator getCalculator() {
         return calculator;
     }
 
