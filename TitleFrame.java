@@ -22,10 +22,12 @@ class TitleFrame extends JFrame {
         TitlePanel mainPanel = new TitlePanel();
         PersonPanel personPanel = new PersonPanel(uManager);
         CTPanel CTPanel = new CTPanel(uManager);
+        DFTpanel DFTpanel = new DFTpanel();
 
         add(mainPanel, "main");
         add(personPanel, "person");
         add(CTPanel, "Calorie Tracker");
+        add(DFTpanel, "Daily Intake");
 
         mainPanel.getPersonButton().addActionListener((ActionEvent e) -> {
             cards.show(container, "person");
@@ -35,7 +37,15 @@ class TitleFrame extends JFrame {
             cards.show(container, "Calorie Tracker");
         });
 
+        mainPanel.getDFTButton().addActionListener((ActionEvent e) -> {
+            cards.show(container, "Daily Intake");
+        });
+
         personPanel.getBackButton().addActionListener((ActionEvent e) -> {
+            cards.show(container, "main");
+        });
+
+        DFTpanel.getBackButton().addActionListener((ActionEvent e) -> {
             cards.show(container, "main");
         });
 

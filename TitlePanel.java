@@ -12,6 +12,7 @@ class TitlePanel extends JPanel {
 
     JButton personInput;
     JButton calorieTracker;
+    JButton dailyIntake;
 
     public TitlePanel() {
 
@@ -28,7 +29,7 @@ class TitlePanel extends JPanel {
         // miloLabel.setVisible(true);
         personInput = new JButton("personInput");
         calorieTracker = new JButton("calorietracker");
-        JButton dailyIntake = new JButton("dailyintake");
+        dailyIntake = new JButton("dailyintake");
         JButton workoutPlan = new JButton("workout plan");
         personInput.setLocation(buttonX, buttonY);
         personInput.setSize(buttonWidth, buttonHeight);
@@ -59,5 +60,9 @@ class TitlePanel extends JPanel {
 
     public JButton getCTButton() {
         return calorieTracker;
+    }
+
+    public JButton getDFTButton() {
+        return dailyIntake;
     }
 }
