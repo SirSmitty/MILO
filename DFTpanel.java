@@ -23,6 +23,8 @@ public class DFTpanel extends JPanel {
         backButton.setSize(50, 50);
         add(backButton);
 
+
+        
         setVisible(true);
     }
 
