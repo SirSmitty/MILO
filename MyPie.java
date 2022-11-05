@@ -8,7 +8,9 @@ class MyPie extends JComponent {
   private Slice[] slices = new Slice[3];;
 
   public MyPie(Person p) {
-    CalorieCalculator calc = p.getCalculator();
+    CalorieCalculator calc = new CalorieCalculator();
+    calc.setPersonforCalc(p);
+    calc.calculateMacros();
     Slice proteinSlice = new Slice(calc.getProtein(), Color.BLUE);
     Slice carbsSlice = new Slice(calc.getCarbs(), Color.RED);
     Slice fatsSlice = new Slice(calc.getFats(), Color.GREEN);

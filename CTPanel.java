@@ -13,17 +13,20 @@ public class CTPanel extends JPanel {
 
         setBackground(Color.WHITE);
         setLayout(null);
+        CalorieCalculator calculator = new CalorieCalculator();
+
         JButton changeButton = new JButton();
+
 
         JComboBox<String> peopleBox = new JComboBox<>(uManager.getPeopleNames());
         peopleBox.setLocation(100, 50);
         peopleBox.setSize(120, 35);
         add(peopleBox);
 
-        Person test = changePerson(uManager, 0);
+        Person test = changePerson(uManager, 0, calculator);
         pieGraph = new MyPie(test);
 
-        changeLabels(test);
+        changeLabels(test, calculator);
 
         backButton = new JButton("<-");
         backButton.setLocation(27, 600);
@@ -43,16 +46,17 @@ public class CTPanel extends JPanel {
         return backButton;
     }
 
-    public Person changePerson(UserManager um, int index) {
+    public Person changePerson(UserManager um, int index, CalorieCalculator calc) {
         Person p = um.getPerson(index);
-        changeLabels(p);
+        changeLabels(p,calc);
         return p;
 
     }
 
-    public void changeLabels(Person person) {
+    public void changeLabels(Person person, CalorieCalculator calculator) {
 
-        CalorieCalculator calculator = person.getCalculator();
+        calculator.setPersonforCalc(person);
+        calculator.calculateMacros();
         // calories label
         JLabel Calories = new JLabel("Daily Calorie count");
         Calories.setLocation(50, 150);

@@ -24,10 +24,6 @@ public class UserManager {
     }
 
     public Vector<String> getPeopleNames() {
-        // Vector<String> names = new Vector<>();
-        // for (int i = 0; i < numberOfPeople(); i++) {
-        // names.add(getPerson(i).getName());
-        // }
         return names;
     }
 

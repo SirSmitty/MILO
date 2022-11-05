@@ -7,9 +7,10 @@ public class CalorieCalculator{
     private int carbs;
     private int fats;
 
-    public CalorieCalculator(Person p){
+    public CalorieCalculator(){}
+
+    public void setPersonforCalc(Person p){
         person = p;
-        calculateMacros();
     }
 
     public int getCalories() {
