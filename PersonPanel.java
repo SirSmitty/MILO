@@ -125,7 +125,7 @@ public class PersonPanel extends JPanel {
             String personActivityLevel = activityLevelsOptions[actCombo.getSelectedIndex()];
             String personGoals = goalsOptions[goalsCombo.getSelectedIndex()];
 
-            Person newPerson = new Person("Jim", personAge, personHeightFeet, personHeightFeet,
+            Person newPerson = new Person("Jim", personAge, personHeightFeet, personHeightInches,
                     personWeight,
                     personActivityLevel, personGoals);
 

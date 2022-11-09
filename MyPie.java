@@ -5,22 +5,38 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 class MyPie extends JComponent {
-  private Slice[] slices = new Slice[3];;
+  private Slice[] slices = new Slice[3];
+  private Person person;
 
   public MyPie(Person p) {
+    person = p;
     CalorieCalculator calc = new CalorieCalculator();
-    calc.setPersonforCalc(p);
+    calculate(calc);
+    changeSlices(calc);
+  }
+
+  public Slice[] getSlices() {
+    return slices;
+  }
+
+  public void changePerson(Person p, CalorieCalculator calc) {
+    person = p;
+    changeSlices(calc);
+  }
+
+  public void calculate(CalorieCalculator calc) {
+    calc.setPersonforCalc(person);
     calc.calculateMacros();
+  }
+
+  public void changeSlices(CalorieCalculator calc) {
+    calculate(calc);
     Slice proteinSlice = new Slice(calc.getProtein(), Color.BLUE);
     Slice carbsSlice = new Slice(calc.getCarbs(), Color.RED);
     Slice fatsSlice = new Slice(calc.getFats(), Color.GREEN);
     slices[0] = proteinSlice;
     slices[1] = carbsSlice;
     slices[2] = fatsSlice;
-  }
-
-  public Slice[] getSlices() {
-    return slices;
   }
 
   void drawPie(Graphics2D g, Rectangle area) {
