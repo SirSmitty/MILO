@@ -14,6 +14,7 @@ import java.lang.Object;
 import java.net.*;
 import java.net.URLConnection;
 import java.net.http.HttpClient;
+import org.json.*;
 
 public class Apiconnect extends Object {
     Apiconnect() {
@@ -39,7 +40,11 @@ public class Apiconnect extends Object {
                 }
                 in.close();
                 // print result
-                System.out.println("JSON String Result " + response);
+                String responseString = response.toString();
+                JSONObject obj = new JSONObject(responseString);
+                String post_id = obj.getString("type");
+                System.out.println(post_id);
+                // System.out.println(post_id);
 
                 // GetAndPost.POSTRequest(response.toString());
             } else {

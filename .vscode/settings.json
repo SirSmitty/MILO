@@ -1,0 +1,11 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "/Users/ethansmith/Downloads/json-20220924 (1).jar"
+        ],
+        "exclude": [
+            "lib/json-20220924.jar"
+        ]
+    }
+}
