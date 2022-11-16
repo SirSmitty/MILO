@@ -23,6 +23,14 @@ public class DFTpanel extends JPanel {
         backButton.setSize(50, 50);
         add(backButton);
 
+        JButton aPIButton = new JButton("connect");
+        aPIButton.setLocation(250, 50);
+        aPIButton.setSize(90, 30);
+        aPIButton.addActionListener((ActionEvent e) -> {
+            apiTest.connectToApi();
+        });
+        add(aPIButton);
+
         setVisible(true);
     }
 

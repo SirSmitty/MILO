@@ -17,17 +17,37 @@ import java.net.http.HttpClient;
 
 public class Apiconnect extends Object {
     Apiconnect() {
+
+    }
+
+    public void connectToApi() {
         try {
             URL url = new URL("https://www.boredapi.com/api/activity");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
+            System.out.println("URL is valid");
 
+            int responseCode = con.getResponseCode();
+            String readLine = null;
 
-        } catch (
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                StringBuffer response = new StringBuffer();
+                while ((readLine = in.readLine()) != null) {
+                    response.append(readLine);
+                    response.append(System.lineSeparator());
+                }
+                in.close();
+                // print result
+                System.out.println("JSON String Result " + response);
 
-        Exception e) {
+                // GetAndPost.POSTRequest(response.toString());
+            } else {
+                System.out.println("GET NOT WORKED");
+            }
+
+        } catch (Exception e) {
             System.out.println("URL is invalid");
         }
-
     }
 }
