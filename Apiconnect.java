@@ -17,21 +17,27 @@ import java.net.http.HttpClient;
 import org.json.*;
 
 public class Apiconnect extends Object {
-    Apiconnect() {
 
+    private String API_KEY;
+
+    Apiconnect() {
+        API_KEY = "3R9jgQ1YN5sjedHi54WfPDwGO1Pof3d1dAwr4NWQ";
     }
 
     public void connectToApi() {
         try {
-            URL url = new URL("https://www.boredapi.com/api/activity");
+            String keyString = "&api_key=" + API_KEY;
+            URL url = new URL(
+                    "https://api.nal.usda.gov/fdc/v1/foods/search?query=chicken&pageSize=1" + keyString);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
-            System.out.println("URL is valid");
 
             int responseCode = con.getResponseCode();
             String readLine = null;
 
             if (responseCode == HttpURLConnection.HTTP_OK) {
+                System.out.println("URL is valid");
+
                 BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 StringBuffer response = new StringBuffer();
                 while ((readLine = in.readLine()) != null) {
@@ -42,11 +48,15 @@ public class Apiconnect extends Object {
                 // print result
                 String responseString = response.toString();
                 JSONObject obj = new JSONObject(responseString);
-                String post_id = obj.getString("type");
-                System.out.println(post_id);
-                // System.out.println(post_id);
+                JSONArray foodsArray = obj.getJSONArray("foods");
+                JSONObject foodItem = foodsArray.getJSONObject(0);
+                JSONArray foodNutrients = foodItem.getJSONArray("foodNutrients");
+                for (int i = 0; i < foodNutrients.length(); i++) {
 
-                // GetAndPost.POSTRequest(response.toString());
+                    System.out.println(foodNutrients.getJSONObject(i).getString("nutrientName"));
+                    System.out.println(foodNutrients.getJSONObject(i).getInt("value"));
+                }
+
             } else {
                 System.out.println("GET NOT WORKED");
             }
