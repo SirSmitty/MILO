@@ -13,6 +13,7 @@ class TitlePanel extends JPanel {
     JButton personInput;
     JButton calorieTracker;
     JButton dailyIntake;
+    JButton workoutPlan;
 
     public TitlePanel() {
 
@@ -30,7 +31,7 @@ class TitlePanel extends JPanel {
         personInput = new JButton("personInput");
         calorieTracker = new JButton("calorietracker");
         dailyIntake = new JButton("dailyintake");
-        JButton workoutPlan = new JButton("workout plan");
+        workoutPlan = new JButton("workout plan");
         personInput.setLocation(buttonX, buttonY);
         personInput.setSize(buttonWidth, buttonHeight);
         buttonY += 75;
@@ -64,5 +65,9 @@ class TitlePanel extends JPanel {
 
     public JButton getDFTButton() {
         return dailyIntake;
+    }
+
+    public JButton getWPButton() {
+        return workoutPlan;
     }
 }

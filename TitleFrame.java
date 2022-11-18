@@ -23,11 +23,13 @@ class TitleFrame extends JFrame {
         PersonPanel personPanel = new PersonPanel(uManager);
         CTPanel CTPanel = new CTPanel(uManager);
         DFTpanel DFTpanel = new DFTpanel();
+        WPpanel WPpanel = new WPpanel();
 
         add(mainPanel, "main");
         add(personPanel, "person");
         add(CTPanel, "Calorie Tracker");
         add(DFTpanel, "Daily Intake");
+        add(WPpanel, "Workout Plan");
 
         mainPanel.getPersonButton().addActionListener((ActionEvent e) -> {
             cards.show(container, "person");
@@ -41,6 +43,10 @@ class TitleFrame extends JFrame {
             cards.show(container, "Daily Intake");
         });
 
+        mainPanel.getWPButton().addActionListener((ActionEvent e) -> {
+            cards.show(container, "Workout Plan");
+        });
+
         personPanel.getBackButton().addActionListener((ActionEvent e) -> {
             cards.show(container, "main");
         });
@@ -50,6 +56,10 @@ class TitleFrame extends JFrame {
         });
 
         CTPanel.getBackButton().addActionListener((ActionEvent e) -> {
+            cards.show(container, "main");
+        });
+
+        WPpanel.getBackButton().addActionListener((ActionEvent e) -> {
             cards.show(container, "main");
         });
 
