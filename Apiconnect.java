@@ -28,7 +28,11 @@ public class Apiconnect extends Object {
         
         URL url = createURL("chicken");
         String responseString = createResponseString(url);
-        getFoodNutrients(responseString);
+        FoodItem foodItem = getFoodItem(responseString);
+        System.out.println(foodItem.getCalories());
+        System.out.println(foodItem.getProtein());
+        System.out.println(foodItem.getFats());
+        System.out.println(foodItem.getCarbs());
         
         // try {
             // String keyString = "&api_key=" + API_KEY;
@@ -114,7 +118,7 @@ public class Apiconnect extends Object {
         }
     }
 
-    public FoodItem getFoodNutrients(String responseString){
+    public FoodItem getFoodItem(String responseString){
 
         FoodItem food = new FoodItem(0, 0, 0);
 
