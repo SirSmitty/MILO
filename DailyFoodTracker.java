@@ -4,24 +4,23 @@ public class DailyFoodTracker {
 
     private List<FoodItem> foodList;
 
-    public DailyFoodTracker(){
+    public DailyFoodTracker() {
 
         foodList = new LinkedList<FoodItem>();
 
     }
 
-
-    public List<FoodItem> getFoodList(){
+    public List<FoodItem> getFoodList() {
         return foodList;
     }
 
-    public void addFood(FoodItem food){
+    public void addFood(FoodItem food) {
         foodList.add(food);
     }
 
-    public void removeFood(String foodString){
-        
-        foodList.remove(foodString);
+    public void removeFood(int foodIndex) {
+
+        foodList.remove(foodIndex - 1);
     }
-    
+
 }

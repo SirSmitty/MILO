@@ -24,26 +24,34 @@ public class DFTpanel extends JPanel {
         backButton.setSize(50, 50);
         add(backButton);
 
+        JTextField addingText = new JTextField();
+        addingText.setLocation(200, 50);
+        addingText.setSize(90, 30);
+        add(addingText);
+
         JButton addButton = new JButton("Add Food");
         addButton.setLocation(250, 50);
         addButton.setSize(90, 30);
         addButton.addActionListener((ActionEvent e) -> {
-            //test with chicken
-            FoodItem fItem = api.getFoodItem("chicken");
+            // test with chicken
+
+            String addString = addingText.getText();
+
+            FoodItem fItem = api.getFoodItem(addString);
 
             dft.addFood(fItem);
 
         });
         add(addButton);
-        
+
         // JButton removeButton = new JButton("Remove Food");
         // removeButton.setLocation(250, 50);
         // removeButton.setSize(90, 30);
         // removeButton.addActionListener((ActionEvent e) -> {
-        //     //test with chicken
-        //     FoodItem fItem = api.getFoodItem("chicken");
+        // //test with chicken
+        // FoodItem fItem = api.getFoodItem("chicken");
 
-        //     dft.removeFood(fItem);
+        // dft.removeFood(fItem);
 
         // });
         // add(removeButton);
@@ -51,7 +59,7 @@ public class DFTpanel extends JPanel {
         setVisible(true);
     }
 
-    public JButton getBackButton(){
+    public JButton getBackButton() {
         return backButton;
     }
 }
