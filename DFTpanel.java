@@ -13,7 +13,8 @@ public class DFTpanel extends JPanel {
 
     DFTpanel() {
 
-        Apiconnect apiTest = new Apiconnect();
+        Apiconnect api = new Apiconnect();
+        DailyFoodTracker dft = new DailyFoodTracker();
 
         setBackground(Color.WHITE);
         setLayout(null);
@@ -23,18 +24,34 @@ public class DFTpanel extends JPanel {
         backButton.setSize(50, 50);
         add(backButton);
 
-        JButton aPIButton = new JButton("connect");
-        aPIButton.setLocation(250, 50);
-        aPIButton.setSize(90, 30);
-        aPIButton.addActionListener((ActionEvent e) -> {
-            apiTest.connectToApi();
+        JButton addButton = new JButton("Add Food");
+        addButton.setLocation(250, 50);
+        addButton.setSize(90, 30);
+        addButton.addActionListener((ActionEvent e) -> {
+            //test with chicken
+            FoodItem fItem = api.getFoodItem("chicken");
+
+            dft.addFood(fItem);
+
         });
-        add(aPIButton);
+        add(addButton);
+        
+        // JButton removeButton = new JButton("Remove Food");
+        // removeButton.setLocation(250, 50);
+        // removeButton.setSize(90, 30);
+        // removeButton.addActionListener((ActionEvent e) -> {
+        //     //test with chicken
+        //     FoodItem fItem = api.getFoodItem("chicken");
+
+        //     dft.removeFood(fItem);
+
+        // });
+        // add(removeButton);
 
         setVisible(true);
     }
 
-    public JButton getBackButton() {
+    public JButton getBackButton(){
         return backButton;
     }
 }
