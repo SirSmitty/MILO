@@ -14,13 +14,22 @@ public class DailyFoodTracker {
         return foodList;
     }
 
+    public List<String> getFoodNameList() {
+        List<String> names = new LinkedList<String>();
+        for (int i = 0; i < foodList.size(); i++) {
+            names.add(foodList.get(i).getName());
+        }
+        return names;
+
+    }
+
     public void addFood(FoodItem food) {
         foodList.add(food);
     }
 
-    public void removeFood(int foodIndex) {
+    public FoodItem removeFood(int foodIndex) {
 
-        foodList.remove(foodIndex - 1);
+        return foodList.remove(foodIndex - 1);
     }
 
 }

@@ -8,10 +8,9 @@ public class Person {
     private String activityLevel;
     private String goals;
 
-
     public Person() {
 
-        setName("N/A");
+        setName("Joe");
         setAge(23);
         setheightFeet(5);
         setheightInches(9);
@@ -68,7 +67,6 @@ public class Person {
     public String getGoals() {
         return goals;
     }
-
 
     public void setName(String n) {
         name = n;

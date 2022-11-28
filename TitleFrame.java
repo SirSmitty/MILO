@@ -22,7 +22,7 @@ class TitleFrame extends JFrame {
         TitlePanel mainPanel = new TitlePanel();
         PersonPanel personPanel = new PersonPanel(uManager);
         CTPanel CTPanel = new CTPanel(uManager);
-        DFTpanel DFTpanel = new DFTpanel();
+        DFTpanel DFTpanel = new DFTpanel(uManager);
         WPpanel WPpanel = new WPpanel();
 
         add(mainPanel, "main");
