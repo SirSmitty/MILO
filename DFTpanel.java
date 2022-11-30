@@ -15,9 +15,9 @@ public class DFTpanel extends JPanel {
     private int carbSum = 0;
     private int fatSum = 0;
     private Person activePerson;
-    
+
     DFTpanel(UserManager uManager) {
-        
+
         activePerson = changePerson(uManager, 0);
         CalorieCalculator calculator = new CalorieCalculator();
         calculator.setPersonforCalc(activePerson);
@@ -34,10 +34,9 @@ public class DFTpanel extends JPanel {
         backButton.setSize(50, 50);
         add(backButton);
 
-
-        //Macro labels stuff
-        // JLabel totalCaloriesL = new JLabel("Total Calories: " + calorieSum + "/" + calculator.getCalories());
-        JLabel totalCaloriesL = new JLabel("Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
+        // Macro labels stuff
+        JLabel totalCaloriesL = new JLabel(
+                "Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
         totalCaloriesL.setLocation(270, 450);
         totalCaloriesL.setSize(150, 30);
         add(totalCaloriesL);
@@ -47,7 +46,8 @@ public class DFTpanel extends JPanel {
         totalCarbsL.setSize(150, 30);
         add(totalCarbsL);
 
-        JLabel totalProteinL = new JLabel("Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
+        JLabel totalProteinL = new JLabel(
+                "Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
         totalProteinL.setLocation(270, 510);
         totalProteinL.setSize(150, 30);
         add(totalProteinL);
@@ -57,8 +57,7 @@ public class DFTpanel extends JPanel {
         totalFatL.setSize(150, 30);
         add(totalFatL);
 
-
-        //Person changin stuff
+        // Person changin stuff
         JComboBox<String> peopleBox = new JComboBox<>(uManager.getPeopleNames());
         peopleBox.setLocation(100, 50);
         peopleBox.setSize(120, 35);
@@ -68,18 +67,18 @@ public class DFTpanel extends JPanel {
         changeButton.setLocation(250, 50);
         changeButton.setSize(90, 30);
         changeButton.addActionListener((ActionEvent e) -> {
-            
+
             activePerson = changePerson(uManager, peopleBox.getSelectedIndex());
             calculator.setPersonforCalc(activePerson);
             calculator.calculateMacros();
-            totalCaloriesL.setText("Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
+            totalCaloriesL
+                    .setText("Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
             totalProteinL.setText("Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
             totalCarbsL.setText("Total Carbs: " + activePerson.getCurrentCarbs() + "/" + calculator.getCarbs());
             totalFatL.setText("Total Fats: " + activePerson.getCurrentFats() + "/" + calculator.getFats());
 
         });
         add(changeButton);
-
 
         // add stuff
 
@@ -109,22 +108,29 @@ public class DFTpanel extends JPanel {
         addButton.setLocation(100, 250);
         addButton.setSize(90, 30);
         addButton.addActionListener((ActionEvent e) -> {
+            try {
 
-            String addString = addingText.getText();
+                String addString = addingText.getText();
 
-            FoodItem fItem = api.getFoodItem(addString);
+                FoodItem fItem = api.getFoodItem(addString);
 
-            dft.addFood(fItem);
+                dft.addFood(fItem);
 
-            list.setListData(dft.getFoodNameList().toArray());
-            activePerson.addToCalories(fItem.getCalories());
-            activePerson.addToProtein(fItem.getProtein());
-            activePerson.addToCarbs(fItem.getCarbs());
-            activePerson.addToFats(fItem.getFats());
-            totalCaloriesL.setText("Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
-            totalProteinL.setText("Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
-            totalCarbsL.setText("Total Carbs: " + activePerson.getCurrentCarbs() + "/" + calculator.getCarbs());
-            totalFatL.setText("Total Fats: " + activePerson.getCurrentFats() + "/" + calculator.getFats());
+                list.setListData(dft.getFoodNameList().toArray());
+                activePerson.addToCalories(fItem.getCalories());
+                activePerson.addToProtein(fItem.getProtein());
+                activePerson.addToCarbs(fItem.getCarbs());
+                activePerson.addToFats(fItem.getFats());
+                totalCaloriesL.setText(
+                        "Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
+                totalProteinL
+                        .setText("Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
+                totalCarbsL.setText("Total Carbs: " + activePerson.getCurrentCarbs() + "/" + calculator.getCarbs());
+                totalFatL.setText("Total Fats: " + activePerson.getCurrentFats() + "/" + calculator.getFats());
+            } catch (Exception addEx) {
+                ErrorFrame addErrorFrame = new ErrorFrame("Invalid food item, please try again.");
+                addErrorFrame.setVisible(true);
+            }
         });
         add(addButton);
 
@@ -145,20 +151,26 @@ public class DFTpanel extends JPanel {
         removeButton.setSize(90, 30);
         removeButton.addActionListener((ActionEvent e) -> {
 
-            int removeInt = Integer.parseInt(removeText.getText());
+            try{
+                int removeInt = Integer.parseInt(removeText.getText());
 
-            FoodItem fItem = dft.removeFood(removeInt);
+                FoodItem fItem = dft.removeFood(removeInt);
 
-            list.setListData(dft.getFoodNameList().toArray());
-            
-            activePerson.subFromCalories(fItem.getCalories());
-            activePerson.subFromProtein(fItem.getProtein());
-            activePerson.subFromCarbs(fItem.getCarbs());
-            activePerson.subFromFats(fItem.getFats());
-            totalCaloriesL.setText("Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
-            totalProteinL.setText("Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
-            totalCarbsL.setText("Total Carbs: " + activePerson.getCurrentCarbs() + "/" + calculator.getCarbs());
-            totalFatL.setText("Total Fats: " + activePerson.getCurrentFats() + "/" + calculator.getFats());
+                list.setListData(dft.getFoodNameList().toArray());
+
+                activePerson.subFromCalories(fItem.getCalories());
+                activePerson.subFromProtein(fItem.getProtein());
+                activePerson.subFromCarbs(fItem.getCarbs());
+                activePerson.subFromFats(fItem.getFats());
+                totalCaloriesL
+                        .setText("Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
+                totalProteinL.setText("Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
+                totalCarbsL.setText("Total Carbs: " + activePerson.getCurrentCarbs() + "/" + calculator.getCarbs());
+                totalFatL.setText("Total Fats: " + activePerson.getCurrentFats() + "/" + calculator.getFats());
+            }catch (Exception removeExc){
+                ErrorFrame removeFrame = new ErrorFrame("Invalid index, please try again.");
+                removeFrame.setVisible(true);
+            }
 
         });
         add(removeButton);

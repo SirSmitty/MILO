@@ -134,16 +134,7 @@ public class PersonPanel extends JPanel {
         // add new person
         submitButton.addActionListener((ActionEvent e) -> {
 
-            JLabel badInput = new JLabel("Please fill out all the information");
-            badInput.setLocation(250,300);
-            badInput.setSize(200, 100);
-
-
-            if(nameTField.getText() == "" || ageTField.getText() == "" || weightTFLabel.getText() == ""){
-                // timerLabel = new Timer(1000, );
-
-            }
-            else{
+            try {
                 String personName = nameTField.getText();
                 int personAge = Integer.parseInt(ageTField.getText());
                 int personHeightFeet = feet[feetCombo.getSelectedIndex()];
@@ -157,6 +148,12 @@ public class PersonPanel extends JPanel {
                         personActivityLevel, personGoals);
 
                 uManager.addPerson(newPerson);
+
+            } catch (Exception exc) {
+
+                ErrorFrame personError = new ErrorFrame("Please fill out all the information");
+                personError.setVisible(true);
+
             }
         });
 

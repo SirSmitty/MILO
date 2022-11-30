@@ -68,7 +68,6 @@ class TitleFrame extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // PersonPanel PIFrame = new PersonPanel();
     }
 
 }
