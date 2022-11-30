@@ -74,14 +74,23 @@ public class Apiconnect extends Object {
 
     public FoodItem getFoodItem(String foodString){
 
-        String responseString = connectToApi(foodString);
+        String responseString = connectToApi(foodString.toLowerCase());
 
-        FoodItem food = new FoodItem(foodString, 0, 0, 0);
+        FoodItem food = new FoodItem(foodString, 0, 0, 0, 0);
 
         JSONObject obj = new JSONObject(responseString);
         JSONArray foodsArray = obj.getJSONArray("foods");
         JSONObject foodItem = foodsArray.getJSONObject(0);
         JSONArray foodNutrients = foodItem.getJSONArray("foodNutrients");
+        String packageWeighString = foodItem.getString("packageWeight");
+        packageWeighString = packageWeighString.substring(packageWeighString.lastIndexOf('/')+1, packageWeighString.lastIndexOf(" "));
+        //this is in grams
+        int packageWeight = Integer.parseInt(packageWeighString); 
+        int servingSize = foodItem.getInt("servingSize");
+
+        int gramsPerServing = packageWeight/servingSize;
+        food.setServingSize(gramsPerServing);
+
 
         String nutrient;
 

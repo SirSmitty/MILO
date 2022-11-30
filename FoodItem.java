@@ -5,12 +5,14 @@ public class FoodItem {
     private int protein;
     private int fats;
     private int carbs;
+    private int servingSize;
 
-    public FoodItem(String n,int p, int f, int c){
+    public FoodItem(String n,int p, int f, int c, int s){
         name = n;
         protein = p;
         fats = f;
         carbs = c;
+        servingSize = s;
         calories = calculateCals(p,f,c);
     }
 
@@ -42,6 +44,10 @@ public class FoodItem {
         return carbs;
     }
 
+    public int getServingSize(){
+        return servingSize;
+    }
+
     public void setName(String n){
         name = n;
     }
@@ -60,5 +66,9 @@ public class FoodItem {
     
     public void setCarbs(int c){
         carbs = c;
+    }
+    
+    public void setServingSize(int s){
+        servingSize = s;
     }
 }

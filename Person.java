@@ -8,6 +8,11 @@ public class Person {
     private String activityLevel;
     private String goals;
 
+    private int currentCalories = 0;
+    private int currentProtein = 0;
+    private int currentCarbs = 0;
+    private int currentFats = 0;
+
     public Person() {
 
         setName("Joe");
@@ -17,6 +22,7 @@ public class Person {
         setWeight(195);
         setActivityLevel("High (4-5 workouts / week)");
         setGoals("Maintain");
+        
 
     }
 
@@ -68,6 +74,22 @@ public class Person {
         return goals;
     }
 
+    public int getCurrentCalories() {
+        return currentCalories;
+    }
+
+    public int getCurrentProtein() {
+        return currentProtein;
+    }
+
+    public int getCurrentCarbs() {
+        return currentCarbs;
+    }
+
+    public int getCurrentFats() {
+        return currentFats;
+    }
+
     public void setName(String n) {
         name = n;
     }
@@ -94,6 +116,39 @@ public class Person {
 
     public void setGoals(String g) {
         goals = g;
+    }
+
+    public void addToCalories(int cal){
+        currentCalories+=cal;
+    }
+
+    public void addToProtein(int pro){
+        currentProtein+=pro;
+    }
+
+    public void addToCarbs(int carb){
+        currentCarbs+=carb;
+    }
+
+    public void addToFats(int fat){
+        currentFats+=fat;
+    }
+
+
+    public void subFromCalories(int cal){
+        currentCalories-=cal;
+    }
+
+    public void subFromProtein(int pro){
+        currentProtein-=pro;
+    }
+
+    public void subFromCarbs(int carb){
+        currentCarbs-=carb;
+    }
+
+    public void subFromFats(int fat){
+        currentFats-=fat;
     }
 
 }

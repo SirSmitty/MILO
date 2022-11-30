@@ -14,12 +14,13 @@ public class DFTpanel extends JPanel {
     private int proteinSum = 0;
     private int carbSum = 0;
     private int fatSum = 0;
-
+    private Person activePerson;
+    
     DFTpanel(UserManager uManager) {
-
-        Person person = uManager.getPerson(0);
+        
+        activePerson = changePerson(uManager, 0);
         CalorieCalculator calculator = new CalorieCalculator();
-        calculator.setPersonforCalc(person);
+        calculator.setPersonforCalc(activePerson);
         calculator.calculateMacros();
 
         Apiconnect api = new Apiconnect();
@@ -33,25 +34,52 @@ public class DFTpanel extends JPanel {
         backButton.setSize(50, 50);
         add(backButton);
 
-        JLabel totalCaloriesL = new JLabel("Total Calories: " + calorieSum + "/" + calculator.getCalories());
+
+        //Macro labels stuff
+        // JLabel totalCaloriesL = new JLabel("Total Calories: " + calorieSum + "/" + calculator.getCalories());
+        JLabel totalCaloriesL = new JLabel("Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
         totalCaloriesL.setLocation(270, 450);
         totalCaloriesL.setSize(150, 30);
         add(totalCaloriesL);
 
-        JLabel totalCarbsL = new JLabel("Total Carbs: " + carbSum + "/" + calculator.getCarbs());
+        JLabel totalCarbsL = new JLabel("Total Carbs: " + activePerson.getCurrentCarbs() + "/" + calculator.getCarbs());
         totalCarbsL.setLocation(270, 480);
         totalCarbsL.setSize(150, 30);
         add(totalCarbsL);
 
-        JLabel totalProteinL = new JLabel("Total Protein: " + proteinSum + "/" + calculator.getProtein());
+        JLabel totalProteinL = new JLabel("Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
         totalProteinL.setLocation(270, 510);
         totalProteinL.setSize(150, 30);
         add(totalProteinL);
 
-        JLabel totalFatL = new JLabel("Total Fat: " + fatSum + "/" + calculator.getFats());
+        JLabel totalFatL = new JLabel("Total Fat: " + activePerson.getCurrentFats() + "/" + calculator.getFats());
         totalFatL.setLocation(270, 540);
         totalFatL.setSize(150, 30);
         add(totalFatL);
+
+
+        //Person changin stuff
+        JComboBox<String> peopleBox = new JComboBox<>(uManager.getPeopleNames());
+        peopleBox.setLocation(100, 50);
+        peopleBox.setSize(120, 35);
+        add(peopleBox);
+
+        JButton changeButton = new JButton("Change Person");
+        changeButton.setLocation(250, 50);
+        changeButton.setSize(90, 30);
+        changeButton.addActionListener((ActionEvent e) -> {
+            
+            activePerson = changePerson(uManager, peopleBox.getSelectedIndex());
+            calculator.setPersonforCalc(activePerson);
+            calculator.calculateMacros();
+            totalCaloriesL.setText("Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
+            totalProteinL.setText("Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
+            totalCarbsL.setText("Total Carbs: " + activePerson.getCurrentCarbs() + "/" + calculator.getCarbs());
+            totalFatL.setText("Total Fats: " + activePerson.getCurrentFats() + "/" + calculator.getFats());
+
+        });
+        add(changeButton);
+
 
         // add stuff
 
@@ -89,14 +117,14 @@ public class DFTpanel extends JPanel {
             dft.addFood(fItem);
 
             list.setListData(dft.getFoodNameList().toArray());
-            calorieSum += fItem.getCalories();
-            proteinSum += fItem.getProtein();
-            carbSum += fItem.getCarbs();
-            fatSum += fItem.getFats();
-            totalCaloriesL.setText("Total Calories: " + calorieSum + "/" + calculator.getCalories());
-            totalProteinL.setText("Total Protein: " + proteinSum + "/" + calculator.getProtein());
-            totalCarbsL.setText("Total Carbs: " + carbSum + "/" + calculator.getCarbs());
-            totalFatL.setText("Total Fats: " + fatSum + "/" + calculator.getFats());
+            activePerson.addToCalories(fItem.getCalories());
+            activePerson.addToProtein(fItem.getProtein());
+            activePerson.addToCarbs(fItem.getCarbs());
+            activePerson.addToFats(fItem.getFats());
+            totalCaloriesL.setText("Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
+            totalProteinL.setText("Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
+            totalCarbsL.setText("Total Carbs: " + activePerson.getCurrentCarbs() + "/" + calculator.getCarbs());
+            totalFatL.setText("Total Fats: " + activePerson.getCurrentFats() + "/" + calculator.getFats());
         });
         add(addButton);
 
@@ -122,14 +150,15 @@ public class DFTpanel extends JPanel {
             FoodItem fItem = dft.removeFood(removeInt);
 
             list.setListData(dft.getFoodNameList().toArray());
-            calorieSum -= fItem.getCalories();
-            proteinSum -= fItem.getProtein();
-            carbSum -= fItem.getCarbs();
-            fatSum -= fItem.getFats();
-            totalCaloriesL.setText("Total Calories: " + calorieSum + "/" + calculator.getCalories());
-            totalProteinL.setText("Total Protein: " + proteinSum + "/" + calculator.getProtein());
-            totalCarbsL.setText("Total Carbs: " + carbSum + "/" + calculator.getCarbs());
-            totalFatL.setText("Total Fats: " + fatSum + "/" + calculator.getFats());
+            
+            activePerson.subFromCalories(fItem.getCalories());
+            activePerson.subFromProtein(fItem.getProtein());
+            activePerson.subFromCarbs(fItem.getCarbs());
+            activePerson.subFromFats(fItem.getFats());
+            totalCaloriesL.setText("Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
+            totalProteinL.setText("Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
+            totalCarbsL.setText("Total Carbs: " + activePerson.getCurrentCarbs() + "/" + calculator.getCarbs());
+            totalFatL.setText("Total Fats: " + activePerson.getCurrentFats() + "/" + calculator.getFats());
 
         });
         add(removeButton);
@@ -137,6 +166,11 @@ public class DFTpanel extends JPanel {
         // creating listing of food items
 
         setVisible(true);
+    }
+
+    public Person changePerson(UserManager um, int index) {
+        return um.getPerson(index);
+
     }
 
     public JButton getBackButton() {

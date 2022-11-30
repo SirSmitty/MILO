@@ -7,9 +7,9 @@ import java.awt.event.ActionEvent;
 
 public class CTPanel extends JPanel {
 
-    Person activePerson;
-    JButton backButton;
-    MyPie pieGraph;
+    private Person activePerson;
+    private JButton backButton;
+    private MyPie pieGraph;
 
     public CTPanel(UserManager uManager) {
 
@@ -71,6 +71,7 @@ public class CTPanel extends JPanel {
         fatsCountLabel.setSize(50, 50);
         add(fatsCountLabel);
 
+        //people change stuff
         JComboBox<String> peopleBox = new JComboBox<>(uManager.getPeopleNames());
         peopleBox.setLocation(100, 50);
         peopleBox.setSize(120, 35);
@@ -112,6 +113,7 @@ public class CTPanel extends JPanel {
 
     public void changeLabels(Person person, CalorieCalculator calculator, JLabel cLabel, JLabel pLabel,
             JLabel carbLabel, JLabel fLabel) {
+                
         calculator.setPersonforCalc(person);
         calculator.calculateMacros();
         cLabel.setText(Integer.toString(calculator.getCalories()));

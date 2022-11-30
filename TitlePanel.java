@@ -51,7 +51,6 @@ class TitlePanel extends JPanel {
         add(dailyIntake);
         add(workoutPlan);
         // end title panel creating frames
-        // JFrame topFrame = (JFrame) SwingUtilities.getUnwrappedParent(this);
 
     }
 

@@ -16,6 +16,19 @@ public class PersonPanel extends JPanel {
         setBackground(Color.WHITE);
         setLayout(null);
 
+        JLabel nameLabel = new JLabel("Name:");
+        JTextField nameTField = new JTextField();
+
+        // Age Label
+        nameLabel.setLocation(105, 70);
+        nameLabel.setSize(50, 40);
+        add(nameLabel);
+
+        // Age Text Field
+        nameTField.setLocation(150, 70);
+        nameTField.setSize(100, 40);
+        add(nameTField);
+
         JLabel ageLabel = new JLabel("Age:");
         JTextField ageTField = new JTextField();
 
@@ -118,6 +131,8 @@ public class PersonPanel extends JPanel {
 
         // add new person
         submitButton.addActionListener((ActionEvent e) -> {
+
+            String personName = nameTField.getText();
             int personAge = Integer.parseInt(ageTField.getText());
             int personHeightFeet = feet[feetCombo.getSelectedIndex()];
             int personHeightInches = inches[inchCombo.getSelectedIndex()];
@@ -125,7 +140,7 @@ public class PersonPanel extends JPanel {
             String personActivityLevel = activityLevelsOptions[actCombo.getSelectedIndex()];
             String personGoals = goalsOptions[goalsCombo.getSelectedIndex()];
 
-            Person newPerson = new Person("Jim", personAge, personHeightFeet, personHeightInches,
+            Person newPerson = new Person(personName, personAge, personHeightFeet, personHeightInches,
                     personWeight,
                     personActivityLevel, personGoals);
 
