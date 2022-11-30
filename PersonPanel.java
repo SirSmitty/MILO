@@ -7,10 +7,12 @@ import javax.swing.BorderFactory;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
+import javax.swing.Timer;
 
 public class PersonPanel extends JPanel {
 
     JButton backButton;
+    private Timer timerLabel;
 
     public PersonPanel(UserManager uManager) {
         setBackground(Color.WHITE);
@@ -132,19 +134,30 @@ public class PersonPanel extends JPanel {
         // add new person
         submitButton.addActionListener((ActionEvent e) -> {
 
-            String personName = nameTField.getText();
-            int personAge = Integer.parseInt(ageTField.getText());
-            int personHeightFeet = feet[feetCombo.getSelectedIndex()];
-            int personHeightInches = inches[inchCombo.getSelectedIndex()];
-            int personWeight = Integer.parseInt(weightTFLabel.getText());
-            String personActivityLevel = activityLevelsOptions[actCombo.getSelectedIndex()];
-            String personGoals = goalsOptions[goalsCombo.getSelectedIndex()];
+            JLabel badInput = new JLabel("Please fill out all the information");
+            badInput.setLocation(250,300);
+            badInput.setSize(200, 100);
 
-            Person newPerson = new Person(personName, personAge, personHeightFeet, personHeightInches,
-                    personWeight,
-                    personActivityLevel, personGoals);
 
-            uManager.addPerson(newPerson);
+            if(nameTField.getText() == "" || ageTField.getText() == "" || weightTFLabel.getText() == ""){
+                // timerLabel = new Timer(1000, );
+
+            }
+            else{
+                String personName = nameTField.getText();
+                int personAge = Integer.parseInt(ageTField.getText());
+                int personHeightFeet = feet[feetCombo.getSelectedIndex()];
+                int personHeightInches = inches[inchCombo.getSelectedIndex()];
+                int personWeight = Integer.parseInt(weightTFLabel.getText());
+                String personActivityLevel = activityLevelsOptions[actCombo.getSelectedIndex()];
+                String personGoals = goalsOptions[goalsCombo.getSelectedIndex()];
+
+                Person newPerson = new Person(personName, personAge, personHeightFeet, personHeightInches,
+                        personWeight,
+                        personActivityLevel, personGoals);
+
+                uManager.addPerson(newPerson);
+            }
         });
 
         setVisible(true);
