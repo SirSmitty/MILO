@@ -18,7 +18,7 @@ public class CTPanel extends JPanel {
         CalorieCalculator calculator = new CalorieCalculator();
 
         // for testing
-        activePerson = changePerson(uManager, 0);
+        activePerson = changePerson(uManager, 1);
         pieGraph = new MyPie(activePerson);
 
         calculator.setPersonforCalc(activePerson);
@@ -71,7 +71,7 @@ public class CTPanel extends JPanel {
         fatsCountLabel.setSize(50, 50);
         add(fatsCountLabel);
 
-        //people change stuff
+        // people change stuff
         JComboBox<String> peopleBox = new JComboBox<>(uManager.getPeopleNames());
         peopleBox.setLocation(100, 50);
         peopleBox.setSize(120, 35);
@@ -113,7 +113,7 @@ public class CTPanel extends JPanel {
 
     public void changeLabels(Person person, CalorieCalculator calculator, JLabel cLabel, JLabel pLabel,
             JLabel carbLabel, JLabel fLabel) {
-                
+
         calculator.setPersonforCalc(person);
         calculator.calculateMacros();
         cLabel.setText(Integer.toString(calculator.getCalories()));

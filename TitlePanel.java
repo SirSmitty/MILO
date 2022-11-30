@@ -16,8 +16,8 @@ class TitlePanel extends JPanel {
 
     public TitlePanel() {
 
-        int buttonX = 50;
-        int buttonY = 500;
+        int buttonX = 25;
+        int buttonY = 600;
         int buttonWidth = 200;
         int buttonHeight = 50;
         // SETS BACKGROUD OF PANEL TO GRAY AND SETS THE LAYOUT OF THE PANEL
@@ -34,10 +34,10 @@ class TitlePanel extends JPanel {
         calorieTracker.setLocation(buttonX, buttonY);
         calorieTracker.setSize(buttonWidth, buttonHeight);
         buttonY += 75;
-        buttonX += 300;
+        buttonX += 250;
         dailyIntake.setLocation(buttonX, buttonY);
         dailyIntake.setSize(buttonWidth, buttonHeight);
-        buttonY += 75;
+        buttonY -= 75;
         workoutPlan.setLocation(buttonX, buttonY);
         workoutPlan.setSize(buttonWidth, buttonHeight);
 
@@ -67,9 +67,9 @@ class TitlePanel extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        ImageIcon background = new ImageIcon("milo.JPG");
+        ImageIcon background = new ImageIcon("miloC.png");
         Image backgroundImage = background.getImage(); // transform it
-        Image backgroundResizeImage = backgroundImage.getScaledInstance(500, 700, java.awt.Image.SCALE_SMOOTH);
+        Image backgroundResizeImage = backgroundImage.getScaledInstance(500, 550, java.awt.Image.SCALE_SMOOTH);
         ImageIcon backgroundFinal = new ImageIcon(backgroundResizeImage);
         backgroundFinal.paintIcon(this, g, 0, 0);
     }

@@ -33,18 +33,38 @@ class TitleFrame extends JFrame {
 
         mainPanel.getPersonButton().addActionListener((ActionEvent e) -> {
             cards.show(container, "person");
+            setSize(500, 700);
+
         });
 
         mainPanel.getCTButton().addActionListener((ActionEvent e) -> {
-            cards.show(container, "Calorie Tracker");
+            if (uManager.getPeople().size() >= 2) {
+                cards.show(container, "Calorie Tracker");
+                setSize(500, 700);
+            } else {
+                ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
+                noPersonError.setVisible(true);
+            }
         });
 
         mainPanel.getDFTButton().addActionListener((ActionEvent e) -> {
-            cards.show(container, "Daily Intake");
+            if (uManager.getPeople().size() >= 2) {
+                cards.show(container, "Daily Intake");
+                setSize(500, 700);
+            } else {
+                ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
+                noPersonError.setVisible(true);
+            }
         });
 
         mainPanel.getWPButton().addActionListener((ActionEvent e) -> {
-            cards.show(container, "Workout Plan");
+            if (uManager.getPeople().size() >= 2) {
+                cards.show(container, "Workout Plan");
+                setSize(500, 700);
+            } else {
+                ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
+                noPersonError.setVisible(true);
+            }
         });
 
         personPanel.getBackButton().addActionListener((ActionEvent e) -> {
