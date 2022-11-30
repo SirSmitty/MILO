@@ -18,7 +18,7 @@ public class CTPanel extends JPanel {
         CalorieCalculator calculator = new CalorieCalculator();
 
         // for testing
-        activePerson = changePerson(uManager, 1);
+        activePerson = changePerson(uManager, 0);
         pieGraph = new MyPie(activePerson);
 
         calculator.setPersonforCalc(activePerson);

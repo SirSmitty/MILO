@@ -11,7 +11,7 @@ class TitleFrame extends JFrame {
         uManager.addPerson(new Person());
 
         setTitle("MILO");
-        setSize(500, 700);
+        setSize(500, 550);
 
         Container container = getContentPane();
 

@@ -17,7 +17,7 @@ class TitlePanel extends JPanel {
     public TitlePanel() {
 
         int buttonX = 25;
-        int buttonY = 600;
+        int buttonY = 400;
         int buttonWidth = 200;
         int buttonHeight = 50;
         // SETS BACKGROUD OF PANEL TO GRAY AND SETS THE LAYOUT OF THE PANEL
