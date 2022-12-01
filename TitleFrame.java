@@ -68,18 +68,22 @@ class TitleFrame extends JFrame {
         });
 
         personPanel.getBackButton().addActionListener((ActionEvent e) -> {
+            setSize(500, 550);
             cards.show(container, "main");
         });
 
         DFTpanel.getBackButton().addActionListener((ActionEvent e) -> {
+            setSize(500, 550);
             cards.show(container, "main");
         });
 
         CTPanel.getBackButton().addActionListener((ActionEvent e) -> {
+            setSize(500, 550);
             cards.show(container, "main");
         });
 
         WPpanel.getBackButton().addActionListener((ActionEvent e) -> {
+            setSize(500, 550);
             cards.show(container, "main");
         });
 

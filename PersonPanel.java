@@ -163,5 +163,4 @@ public class PersonPanel extends JPanel {
     public JButton getBackButton() {
         return backButton;
     }
-
 }
