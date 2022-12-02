@@ -8,7 +8,7 @@ class TitleFrame extends JFrame {
     public TitleFrame() {
 
         UserManager uManager = new UserManager();
-        uManager.addPerson(new Person());
+        // uManager.addPerson(new Person());
 
         setTitle("MILO");
         setSize(500, 550);
@@ -21,8 +21,8 @@ class TitleFrame extends JFrame {
 
         TitlePanel mainPanel = new TitlePanel();
         PersonPanel personPanel = new PersonPanel(uManager);
-        CTPanel CTPanel = new CTPanel(uManager);
-        DFTpanel DFTpanel = new DFTpanel(uManager);
+        CTPanel CTPanel = new CTPanel();
+        DFTpanel DFTpanel = new DFTpanel();
         WPpanel WPpanel = new WPpanel();
 
         add(mainPanel, "main");
@@ -38,7 +38,8 @@ class TitleFrame extends JFrame {
         });
 
         mainPanel.getCTButton().addActionListener((ActionEvent e) -> {
-            if (uManager.getPeople().size() >= 2) {
+            if (uManager.getPeople().size() >= 1) {
+                CTPanel.initialize(uManager);
                 cards.show(container, "Calorie Tracker");
                 setSize(500, 700);
             } else {
@@ -49,7 +50,9 @@ class TitleFrame extends JFrame {
 
         mainPanel.getDFTButton().addActionListener((ActionEvent e) -> {
 
-            if (uManager.getPeople().size() >= 2) {
+            if (uManager.getPeople().size() >= 1) {
+                DFTpanel.initialize(uManager);
+
                 cards.show(container, "Daily Intake");
                 setSize(500, 700);
             } else {
@@ -59,7 +62,7 @@ class TitleFrame extends JFrame {
         });
 
         mainPanel.getWPButton().addActionListener((ActionEvent e) -> {
-            if (uManager.getPeople().size() >= 2) {
+            if (uManager.getPeople().size() >= 1) {
                 cards.show(container, "Workout Plan");
                 setSize(500, 700);
 

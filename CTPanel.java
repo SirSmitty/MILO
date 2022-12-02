@@ -11,10 +11,21 @@ public class CTPanel extends JPanel {
     private JButton backButton;
     private MyPie pieGraph;
 
-    public CTPanel(UserManager uManager) {
+    public CTPanel(){
+        this.setBackground(Color.WHITE);
+        this.setLayout(null);
 
-        setBackground(Color.WHITE);
-        setLayout(null);
+        backButton = new JButton("<-");
+        backButton.setLocation(27, 600);
+        backButton.setSize(50, 50);
+        add(backButton);
+
+        setVisible(true);
+    }
+
+    public void initialize(UserManager uManager) {
+
+
         CalorieCalculator calculator = new CalorieCalculator();
 
         // for testing
@@ -33,49 +44,49 @@ public class CTPanel extends JPanel {
         JLabel calorieCountLabel = new JLabel(calCount);
         calorieCountLabel.setLocation(50, 170);
         calorieCountLabel.setSize(50, 50);
-        add(calorieCountLabel);
+        this.add(calorieCountLabel);
 
         // Protein label
         JLabel Protein = new JLabel("Daily Protein intake");
         Protein.setLocation(50, 210);
         Protein.setSize(150, 50);
-        add(Protein);
+        this.add(Protein);
         // protein count label
         String proteinCount = Integer.toString(calculator.getProtein());
         JLabel proteinCountLabel = new JLabel(proteinCount);
         proteinCountLabel.setLocation(50, 230);
         proteinCountLabel.setSize(50, 50);
-        add(proteinCountLabel);
+        this.add(proteinCountLabel);
 
         // carbs label
         JLabel Carbs = new JLabel("Daily Carbs intake");
         Carbs.setLocation(50, 270);
         Carbs.setSize(150, 50);
-        add(Carbs);
+        this.add(Carbs);
         // carbs count label
         String carbsCount = Integer.toString(calculator.getCarbs());
         JLabel carbsCountLabel = new JLabel(carbsCount);
         carbsCountLabel.setLocation(50, 290);
         carbsCountLabel.setSize(50, 50);
-        add(carbsCountLabel);
+        this.add(carbsCountLabel);
 
         // Fats label
         JLabel Fats = new JLabel("Daily Fat intake");
         Fats.setLocation(50, 330);
         Fats.setSize(150, 50);
-        add(Fats);
+        this.add(Fats);
         // fats count label
         String FatsCount = Integer.toString(calculator.getFats());
         JLabel fatsCountLabel = new JLabel(FatsCount);
         fatsCountLabel.setLocation(50, 350);
         fatsCountLabel.setSize(50, 50);
-        add(fatsCountLabel);
+        this.add(fatsCountLabel);
 
         // people change stuff
         JComboBox<String> peopleBox = new JComboBox<>(uManager.getPeopleNames());
         peopleBox.setLocation(100, 50);
         peopleBox.setSize(120, 35);
-        add(peopleBox);
+        this.add(peopleBox);
 
         JButton changeButton = new JButton("Change Person");
         changeButton.setLocation(250, 50);
@@ -85,16 +96,10 @@ public class CTPanel extends JPanel {
             changeLabels(activePerson, calculator, calorieCountLabel, proteinCountLabel, carbsCountLabel,
                     fatsCountLabel);
             pieGraph.changePerson(activePerson, calculator);
-            repaint();
+            this.repaint();
         });
-        add(changeButton);
+        this.add(changeButton);
 
-        backButton = new JButton("<-");
-        backButton.setLocation(27, 600);
-        backButton.setSize(50, 50);
-        add(backButton);
-
-        setVisible(true);
 
     }
 

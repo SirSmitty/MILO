@@ -16,7 +16,19 @@ public class DFTpanel extends JPanel {
     private int fatSum = 0;
     private Person activePerson;
 
-    DFTpanel(UserManager uManager) {
+    public DFTpanel(){
+        this.setBackground(Color.WHITE);
+        this.setLayout(null);
+
+        backButton = new JButton("<-");
+        backButton.setLocation(27, 600);
+        backButton.setSize(50, 50);
+        add(backButton);
+
+        setVisible(true);
+    }
+
+    public void initialize(UserManager uManager) {
 
         activePerson = changePerson(uManager, 0);
         CalorieCalculator calculator = new CalorieCalculator();
@@ -25,14 +37,6 @@ public class DFTpanel extends JPanel {
 
         Apiconnect api = new Apiconnect();
         DailyFoodTracker dft = new DailyFoodTracker();
-
-        setBackground(Color.WHITE);
-        setLayout(null);
-
-        backButton = new JButton("<-");
-        backButton.setLocation(50, 600);
-        backButton.setSize(50, 50);
-        add(backButton);
 
         // Macro labels stuff
         JLabel totalCaloriesL = new JLabel(
@@ -179,7 +183,6 @@ public class DFTpanel extends JPanel {
 
         // creating listing of food items
 
-        setVisible(true);
     }
 
     public Person changePerson(UserManager um, int index) {

@@ -11,7 +11,7 @@ import java.util.*;
 public class WPpanel extends JPanel {
     JButton backButton;
 
-    WPpanel() {
+    public WPpanel() {
         setBackground(Color.WHITE);
         setLayout(null);
 
