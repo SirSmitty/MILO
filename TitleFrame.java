@@ -21,12 +21,21 @@ class TitleFrame extends JFrame {
 
         TitlePanel mainPanel = new TitlePanel();
         PersonPanel personPanel = new PersonPanel(uManager);
+
+        add(mainPanel, "main");
+        add(personPanel, "person");
+        // if (uManager.getPeople().size() >= 1) {
+
+        // } else {
+        // ErrorFrame noPersonError = new ErrorFrame("You have not added a person,
+        // please do so");
+        // noPersonError.setVisible(true);
+        // }
+
         CTPanel CTPanel = new CTPanel(uManager);
         DFTpanel DFTpanel = new DFTpanel(uManager);
         WPpanel WPpanel = new WPpanel();
 
-        add(mainPanel, "main");
-        add(personPanel, "person");
         add(CTPanel, "Calorie Tracker");
         add(DFTpanel, "Daily Intake");
         add(WPpanel, "Workout Plan");
@@ -38,9 +47,8 @@ class TitleFrame extends JFrame {
         });
 
         mainPanel.getCTButton().addActionListener((ActionEvent e) -> {
-            if (uManager.getPeople().size() >= 2) {
+            if (uManager.getPeople().size() >= 1) {
                 cards.show(container, "Calorie Tracker");
-                uManager.removeFirst();
                 setSize(500, 700);
             } else {
                 ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
@@ -51,7 +59,6 @@ class TitleFrame extends JFrame {
         mainPanel.getDFTButton().addActionListener((ActionEvent e) -> {
             if (uManager.getPeople().size() >= 2) {
                 cards.show(container, "Daily Intake");
-                uManager.removeFirst();
                 setSize(500, 700);
             } else {
                 ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
@@ -62,7 +69,6 @@ class TitleFrame extends JFrame {
         mainPanel.getWPButton().addActionListener((ActionEvent e) -> {
             if (uManager.getPeople().size() >= 2) {
                 cards.show(container, "Workout Plan");
-                uManager.removeFirst();
                 setSize(500, 700);
             } else {
                 ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
