@@ -24,77 +24,78 @@ class TitleFrame extends JFrame {
 
         add(mainPanel, "main");
         add(personPanel, "person");
-        // if (uManager.getPeople().size() >= 1) {
+        if (uManager.getPeople().size() >= 1) {
 
-        // } else {
-        // ErrorFrame noPersonError = new ErrorFrame("You have not added a person,
-        // please do so");
-        // noPersonError.setVisible(true);
-        // }
+            CTPanel CTPanel = new CTPanel(uManager);
+            DFTpanel DFTpanel = new DFTpanel(uManager);
+            WPpanel WPpanel = new WPpanel();
 
-        CTPanel CTPanel = new CTPanel(uManager);
-        DFTpanel DFTpanel = new DFTpanel(uManager);
-        WPpanel WPpanel = new WPpanel();
+            add(CTPanel, "Calorie Tracker");
+            add(DFTpanel, "Daily Intake");
+            add(WPpanel, "Workout Plan");
 
-        add(CTPanel, "Calorie Tracker");
-        add(DFTpanel, "Daily Intake");
-        add(WPpanel, "Workout Plan");
+            mainPanel.getPersonButton().addActionListener((ActionEvent e) -> {
+                cards.show(container, "person");
+                setSize(500, 700);
 
-        mainPanel.getPersonButton().addActionListener((ActionEvent e) -> {
-            cards.show(container, "person");
-            setSize(500, 700);
+            });
 
-        });
-
-        mainPanel.getCTButton().addActionListener((ActionEvent e) -> {
-            if (uManager.getPeople().size() >= 1) {
+            mainPanel.getCTButton().addActionListener((ActionEvent e) -> {
+                // if (uManager.getPeople().size() >= 1) {
                 cards.show(container, "Calorie Tracker");
                 setSize(500, 700);
-            } else {
-                ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
-                noPersonError.setVisible(true);
-            }
-        });
+                // } else {
+                // ErrorFrame noPersonError = new ErrorFrame("You have not added a person,
+                // please do so");
+                // noPersonError.setVisible(true);
+                // }
+            });
 
-        mainPanel.getDFTButton().addActionListener((ActionEvent e) -> {
-            if (uManager.getPeople().size() >= 2) {
+            mainPanel.getDFTButton().addActionListener((ActionEvent e) -> {
+                // if (uManager.getPeople().size() >= 2) {
                 cards.show(container, "Daily Intake");
                 setSize(500, 700);
-            } else {
-                ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
-                noPersonError.setVisible(true);
-            }
-        });
+                // } else {
+                // ErrorFrame noPersonError = new ErrorFrame("You have not added a person,
+                // please do so");
+                // noPersonError.setVisible(true);
+                // }
+            });
 
-        mainPanel.getWPButton().addActionListener((ActionEvent e) -> {
-            if (uManager.getPeople().size() >= 2) {
+            mainPanel.getWPButton().addActionListener((ActionEvent e) -> {
+                // if (uManager.getPeople().size() >= 2) {
                 cards.show(container, "Workout Plan");
                 setSize(500, 700);
-            } else {
-                ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
-                noPersonError.setVisible(true);
-            }
-        });
+                // } else {
+                // ErrorFrame noPersonError = new ErrorFrame("You have not added a person,
+                // please do so");
+                // noPersonError.setVisible(true);
+                // }
+            });
 
-        personPanel.getBackButton().addActionListener((ActionEvent e) -> {
-            setSize(500, 550);
-            cards.show(container, "main");
-        });
+            personPanel.getBackButton().addActionListener((ActionEvent e) -> {
+                setSize(500, 550);
+                cards.show(container, "main");
+            });
 
-        DFTpanel.getBackButton().addActionListener((ActionEvent e) -> {
-            setSize(500, 550);
-            cards.show(container, "main");
-        });
+            DFTpanel.getBackButton().addActionListener((ActionEvent e) -> {
+                setSize(500, 550);
+                cards.show(container, "main");
+            });
 
-        CTPanel.getBackButton().addActionListener((ActionEvent e) -> {
-            setSize(500, 550);
-            cards.show(container, "main");
-        });
+            CTPanel.getBackButton().addActionListener((ActionEvent e) -> {
+                setSize(500, 550);
+                cards.show(container, "main");
+            });
 
-        WPpanel.getBackButton().addActionListener((ActionEvent e) -> {
-            setSize(500, 550);
-            cards.show(container, "main");
-        });
+            WPpanel.getBackButton().addActionListener((ActionEvent e) -> {
+                setSize(500, 550);
+                cards.show(container, "main");
+            });
+        } else {
+            ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
+            noPersonError.setVisible(true);
+        }
 
         setVisible(true);
         setResizable(false);

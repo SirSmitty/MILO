@@ -20,7 +20,7 @@ class TitlePanel extends JPanel {
 
         try {
             // create the font to use. Specify the size!
-            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("Objective-ExtraBoldSlanted.otf"))
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("assets/Objective-ExtraBoldSlanted.otf"))
                     .deriveFont(12f);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             // register the font
@@ -86,7 +86,7 @@ class TitlePanel extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        ImageIcon background = new ImageIcon("miloC.png");
+        ImageIcon background = new ImageIcon("assets/miloC.png");
         Image backgroundImage = background.getImage(); // transform it
         Image backgroundResizeImage = backgroundImage.getScaledInstance(500, 550, java.awt.Image.SCALE_SMOOTH);
         ImageIcon backgroundFinal = new ImageIcon(backgroundResizeImage);
