@@ -40,6 +40,7 @@ class TitleFrame extends JFrame {
         mainPanel.getCTButton().addActionListener((ActionEvent e) -> {
             if (uManager.getPeople().size() >= 2) {
                 cards.show(container, "Calorie Tracker");
+                uManager.removeFirst();
                 setSize(500, 700);
             } else {
                 ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
@@ -50,6 +51,7 @@ class TitleFrame extends JFrame {
         mainPanel.getDFTButton().addActionListener((ActionEvent e) -> {
             if (uManager.getPeople().size() >= 2) {
                 cards.show(container, "Daily Intake");
+                uManager.removeFirst();
                 setSize(500, 700);
             } else {
                 ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
@@ -60,6 +62,7 @@ class TitleFrame extends JFrame {
         mainPanel.getWPButton().addActionListener((ActionEvent e) -> {
             if (uManager.getPeople().size() >= 2) {
                 cards.show(container, "Workout Plan");
+                uManager.removeFirst();
                 setSize(500, 700);
             } else {
                 ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");

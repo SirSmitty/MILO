@@ -99,6 +99,13 @@ public class CTPanel extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        ImageIcon background = new ImageIcon("milo_blank.jpg");
+        Image backgroundImage = background.getImage(); // transform it
+        Image backgroundResizeImage = backgroundImage.getScaledInstance(500, 700, java.awt.Image.SCALE_SMOOTH);
+        ImageIcon backgroundFinal = new ImageIcon(backgroundResizeImage);
+        backgroundFinal.paintIcon(this, g, 0, 0);
+
         pieGraph.drawPie((Graphics2D) g, new Rectangle(250, 375, 200, 200));
     }
 

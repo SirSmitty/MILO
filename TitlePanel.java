@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.imageio.ImageIO;
 import java.io.File;
+import javax.swing.border.Border;
 
 // implements ActionListener 
 class TitlePanel extends JPanel {

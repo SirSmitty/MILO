@@ -31,4 +31,8 @@ public class UserManager {
         return people.size();
     }
 
+    public void removeFirst() {
+        people.remove(0);
+    }
+
 }

@@ -151,7 +151,7 @@ public class DFTpanel extends JPanel {
         removeButton.setSize(90, 30);
         removeButton.addActionListener((ActionEvent e) -> {
 
-            try{
+            try {
                 int removeInt = Integer.parseInt(removeText.getText());
 
                 FoodItem fItem = dft.removeFood(removeInt);
@@ -163,11 +163,13 @@ public class DFTpanel extends JPanel {
                 activePerson.subFromCarbs(fItem.getCarbs());
                 activePerson.subFromFats(fItem.getFats());
                 totalCaloriesL
-                        .setText("Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
-                totalProteinL.setText("Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
+                        .setText("Total Calories: " + activePerson.getCurrentCalories() + "/"
+                                + calculator.getCalories());
+                totalProteinL
+                        .setText("Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
                 totalCarbsL.setText("Total Carbs: " + activePerson.getCurrentCarbs() + "/" + calculator.getCarbs());
                 totalFatL.setText("Total Fats: " + activePerson.getCurrentFats() + "/" + calculator.getFats());
-            }catch (Exception removeExc){
+            } catch (Exception removeExc) {
                 ErrorFrame removeFrame = new ErrorFrame("Invalid index, please try again.");
                 removeFrame.setVisible(true);
             }
@@ -187,5 +189,14 @@ public class DFTpanel extends JPanel {
 
     public JButton getBackButton() {
         return backButton;
+    }
+
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        ImageIcon background = new ImageIcon("milo_blank.jpg");
+        Image backgroundImage = background.getImage(); // transform it
+        Image backgroundResizeImage = backgroundImage.getScaledInstance(500, 700, java.awt.Image.SCALE_SMOOTH);
+        ImageIcon backgroundFinal = new ImageIcon(backgroundResizeImage);
+        backgroundFinal.paintIcon(this, g, 0, 0);
     }
 }
