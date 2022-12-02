@@ -20,11 +20,11 @@ class TitlePanel extends JPanel {
 
         try {
             // create the font to use. Specify the size!
-            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("assets/Objective-ExtraBoldSlanted.otf"))
+            Font buttonFont = Font.createFont(Font.TRUETYPE_FONT, new File("assets/Objective-ExtraBoldSlanted.otf"))
                     .deriveFont(12f);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             // register the font
-            ge.registerFont(customFont);
+            ge.registerFont(buttonFont);
 
             int buttonX = 25;
             int buttonY = 400;
@@ -35,13 +35,13 @@ class TitlePanel extends JPanel {
             setLayout(null);
             // miloLabel.setVisible(true);
             personInput = new JButton("<html><span color=\"#D3605A\">Person Input</span></html>");
-            personInput.setFont(customFont);
+            personInput.setFont(buttonFont);
             calorieTracker = new JButton("<html><span color=\"#D3605A\">Calorie Tracker</span></html>");
-            calorieTracker.setFont(customFont);
+            calorieTracker.setFont(buttonFont);
             dailyIntake = new JButton("<html><span color=\"#D3605A\">Daily Food Intake</span></html>");
-            dailyIntake.setFont(customFont);
+            dailyIntake.setFont(buttonFont);
             workoutPlan = new JButton("<html><span color=\"#D3605A\">Workout Plan</span></html>");
-            workoutPlan.setFont(customFont);
+            workoutPlan.setFont(buttonFont);
             dailyIntake.setLocation(buttonX, buttonY);
             dailyIntake.setSize(buttonWidth, buttonHeight);
             buttonY -= 75;
