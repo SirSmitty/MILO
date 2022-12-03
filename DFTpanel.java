@@ -16,7 +16,9 @@ public class DFTpanel extends JPanel {
     private int fatSum = 0;
     private Person activePerson;
 
-    public DFTpanel(){
+    private boolean init = false;
+
+    public DFTpanel() {
         this.setBackground(Color.WHITE);
         this.setLayout(null);
 
@@ -29,6 +31,8 @@ public class DFTpanel extends JPanel {
     }
 
     public void initialize(UserManager uManager) {
+
+        init = true;
 
         activePerson = changePerson(uManager, 0);
         CalorieCalculator calculator = new CalorieCalculator();
@@ -188,6 +192,10 @@ public class DFTpanel extends JPanel {
     public Person changePerson(UserManager um, int index) {
         return um.getPerson(index);
 
+    }
+
+    public boolean getInit() {
+        return init;
     }
 
     public JButton getBackButton() {

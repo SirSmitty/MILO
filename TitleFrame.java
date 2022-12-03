@@ -11,7 +11,7 @@ class TitleFrame extends JFrame {
         // uManager.addPerson(new Person());
 
         setTitle("MILO");
-        setSize(500, 550);
+        setSize(500, 500);
 
         Container container = getContentPane();
 
@@ -33,13 +33,15 @@ class TitleFrame extends JFrame {
 
         mainPanel.getPersonButton().addActionListener((ActionEvent e) -> {
             cards.show(container, "person");
-            setSize(500, 700);
+            setSize(500, 570);
 
         });
 
         mainPanel.getCTButton().addActionListener((ActionEvent e) -> {
             if (uManager.getPeople().size() >= 1) {
-                CTPanel.initialize(uManager);
+                if (!CTPanel.getInit()) {
+                    CTPanel.initialize(uManager);
+                }
                 cards.show(container, "Calorie Tracker");
                 setSize(500, 700);
             } else {
@@ -51,7 +53,9 @@ class TitleFrame extends JFrame {
         mainPanel.getDFTButton().addActionListener((ActionEvent e) -> {
 
             if (uManager.getPeople().size() >= 1) {
-                DFTpanel.initialize(uManager);
+                if (!DFTpanel.getInit()) {
+                    DFTpanel.initialize(uManager);
+                }
 
                 cards.show(container, "Daily Intake");
                 setSize(500, 700);
@@ -73,22 +77,22 @@ class TitleFrame extends JFrame {
         });
 
         personPanel.getBackButton().addActionListener((ActionEvent e) -> {
-            setSize(500, 550);
+            setSize(500, 500);
             cards.show(container, "main");
         });
 
         DFTpanel.getBackButton().addActionListener((ActionEvent e) -> {
-            setSize(500, 550);
+            setSize(500, 500);
             cards.show(container, "main");
         });
 
         CTPanel.getBackButton().addActionListener((ActionEvent e) -> {
-            setSize(500, 550);
+            setSize(500, 500);
             cards.show(container, "main");
         });
 
         WPpanel.getBackButton().addActionListener((ActionEvent e) -> {
-            setSize(500, 550);
+            setSize(500, 500);
             cards.show(container, "main");
         });
 

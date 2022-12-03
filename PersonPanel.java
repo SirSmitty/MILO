@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.Timer;
+import java.io.IOException;
+import java.io.File;
 
 public class PersonPanel extends JPanel {
 
@@ -15,149 +17,189 @@ public class PersonPanel extends JPanel {
     private Timer timerLabel;
 
     public PersonPanel(UserManager uManager) {
-        setBackground(Color.WHITE);
-        setLayout(null);
 
-        JLabel nameLabel = new JLabel("Name:");
-        JTextField nameTField = new JTextField();
+        try {
 
-        // Age Label
-        nameLabel.setLocation(105, 70);
-        nameLabel.setSize(50, 40);
-        add(nameLabel);
+            // create the font to use. Specify the size!
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("assets/Objective-ExtraBoldSlanted.otf"))
+                    .deriveFont(18f);
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            // register the font
+            ge.registerFont(customFont);
+            setBackground(Color.WHITE);
+            setLayout(null);
 
-        // Age Text Field
-        nameTField.setLocation(150, 70);
-        nameTField.setSize(100, 40);
-        add(nameTField);
+            JLabel nameLabel = new JLabel("Name:");
+            JTextField nameTField = new JTextField();
 
-        JLabel ageLabel = new JLabel("Age:");
-        JTextField ageTField = new JTextField();
+            // Name Label
+            nameLabel.setLocation(50, 70);
+            nameLabel.setSize(70, 40);
+            nameLabel.setFont(customFont);
+            add(nameLabel);
 
-        // Age Label
-        ageLabel.setLocation(105, 120);
-        ageLabel.setSize(50, 40);
-        add(ageLabel);
+            // Name Text Field
+            nameTField.setLocation(150, 70);
+            nameTField.setSize(200, 40);
+            nameTField.setFont(customFont);
+            add(nameTField);
 
-        // Age Text Field
-        ageTField.setLocation(135, 120);
-        ageTField.setSize(100, 40);
-        add(ageTField);
+            JLabel ageLabel = new JLabel("Age:");
+            JTextField ageTField = new JTextField();
+            ageLabel.setFont(customFont);
+            ageTField.setFont(customFont);
 
-        // logic for calculating ft/inches
-        Integer feet[] = { 4, 5, 6, 7 };
-        Integer inches[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
-        JLabel heightLabel = new JLabel("Height:");
-        JLabel feetLabel = new JLabel("ft");
-        JLabel inchLabel = new JLabel("in");
-        JComboBox<Integer> feetCombo = new JComboBox<>(feet);
-        JComboBox<Integer> inchCombo = new JComboBox<>(inches);
+            // Age Label
+            ageLabel.setLocation(50, 120);
+            ageLabel.setSize(50, 40);
+            ageLabel.setFont(customFont);
+            add(ageLabel);
 
-        // Height Label
-        heightLabel.setLocation(92, 200);
-        heightLabel.setSize(50, 40);
-        add(heightLabel);
+            // Age Text Field
+            ageTField.setLocation(150, 120);
+            ageTField.setSize(100, 40);
+            ageTField.setFont(customFont);
+            add(ageTField);
 
-        // Feet drop down
-        feetCombo.setLocation(145, 200);
-        feetCombo.setSize(60, 40);
-        add(feetCombo);
-        // Feet Label
-        feetLabel.setLocation(205, 200);
-        feetLabel.setSize(40, 40);
-        add(feetLabel);
+            // Weight label
+            JLabel weightLabel = new JLabel("Weight:");
+            JTextField weightTFLabel = new JTextField();
 
-        // Inch drop combo
-        inchCombo.setLocation(245, 200);
-        inchCombo.setSize(70, 40);
-        add(inchCombo);
-        // Inch
-        inchLabel.setLocation(315, 200);
-        inchLabel.setSize(40, 40);
-        add(inchLabel);
+            // Weight Label
+            weightLabel.setLocation(50, 170);
+            weightLabel.setSize(100, 40);
+            weightLabel.setFont(customFont);
+            add(weightLabel);
 
-        // Weight label
-        JLabel weightLabel = new JLabel("Weight:");
-        JTextField weightTFLabel = new JTextField();
+            // Weight TF Label
+            weightTFLabel.setLocation(150, 170);// weight text field is 280
+            weightTFLabel.setSize(100, 40);
+            weightTFLabel.setFont(customFont);
+            add(weightTFLabel);
 
-        // Weight Label
-        weightLabel.setLocation(90, 280);
-        weightLabel.setSize(50, 40);
-        add(weightLabel);
+            // logic for calculating ft/inches
+            Integer feet[] = { 4, 5, 6, 7 };
+            Integer inches[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+            JLabel heightLabel = new JLabel("Height:");
+            JLabel feetLabel = new JLabel("ft");
+            JLabel inchLabel = new JLabel("in");
+            JComboBox<Integer> feetCombo = new JComboBox<>(feet);
+            JComboBox<Integer> inchCombo = new JComboBox<>(inches);
 
-        // Weight TF Label
-        weightTFLabel.setLocation(140, 280);
-        weightTFLabel.setSize(100, 40);
-        add(weightTFLabel);
+            // Height Label
+            heightLabel.setLocation(50, 220);
+            heightLabel.setSize(70, 40);
+            heightLabel.setFont(customFont);
+            add(heightLabel);
 
-        String activityLevelsOptions[] = { "Low (1 workout / week)", "Medium(2-3 workouts / week)",
-                "High (4-5 workouts / week)", "Extremely High (6+ workouts / week)" };
-        JLabel actLevel = new JLabel("Activity Level:");
-        JComboBox actCombo = new JComboBox(activityLevelsOptions);
+            // Feet drop down
+            feetCombo.setLocation(150, 220);
+            feetCombo.setSize(80, 45);
+            feetCombo.setFont(customFont);
+            add(feetCombo);
+            // Feet Label
+            feetLabel.setLocation(230, 220);
+            feetLabel.setSize(40, 40);
+            feetLabel.setFont(customFont);
+            add(feetLabel);
 
-        // ActivityLabelDrop
-        actLevel.setLocation(50, 360);
-        actLevel.setSize(100, 40);
-        add(actLevel);
+            // Inch drop combo
+            inchCombo.setLocation(290, 220);
+            inchCombo.setSize(80, 45);
+            inchCombo.setFont(customFont);
+            add(inchCombo);
+            // Inch
+            inchLabel.setLocation(370, 220);
+            inchLabel.setSize(40, 40);
+            inchLabel.setFont(customFont);
+            add(inchLabel);
 
-        // Activity Level Label
-        actCombo.setLocation(150, 360);
-        actCombo.setSize(100, 40);
-        add(actCombo);
+            String activityLevelsOptions[] = { "Low (1 workout / week)", "Medium(2-3 workouts / week)",
+                    "High (4-5 workouts / week)", "Extremely High (6+ workouts / week)" };
+            JLabel actLevel = new JLabel("Activity:");
+            JComboBox actCombo = new JComboBox(activityLevelsOptions);
 
-        String goalsOptions[] = { "Gain", "Maintain", "Lose" };
-        JLabel goalsLabel = new JLabel("Goals:");
-        JComboBox goalsCombo = new JComboBox(goalsOptions);
+            // Activity Label Label
+            actLevel.setLocation(50, 270);
+            actLevel.setSize(100, 40);
+            actLevel.setFont(customFont);
+            add(actLevel);
 
-        // Goals Label
-        goalsLabel.setLocation(100, 420);
-        goalsLabel.setSize(50, 40);
-        add(goalsLabel);
+            // Activity Level Drop
+            actCombo.setLocation(150, 270);
+            actCombo.setSize(300, 45);
+            actCombo.setFont(customFont);
+            add(actCombo);
 
-        // Goals Combo
-        goalsCombo.setLocation(150, 420);
-        goalsCombo.setSize(100, 40);
-        add(goalsCombo);
+            String goalsOptions[] = { "Gain", "Maintain", "Lose" };
+            JLabel goalsLabel = new JLabel("Goals:");
+            JComboBox goalsCombo = new JComboBox(goalsOptions);
 
-        // back button
-        backButton = new JButton("<-");
-        backButton.setLocation(27, 600);
-        backButton.setSize(50, 50);
-        add(backButton);
+            // Goals Label
+            goalsLabel.setLocation(50, 320);
+            goalsLabel.setSize(70, 40);
+            goalsLabel.setFont(customFont);
+            add(goalsLabel);
 
-        // submit button
-        JButton submitButton = new JButton("Submit");
-        submitButton.setLocation(130, 500);
-        submitButton.setSize(120, 50);
-        add(submitButton);
+            // Goals Combo
+            goalsCombo.setLocation(150, 320);
+            goalsCombo.setSize(100, 45);
+            goalsCombo.setFont(customFont);
+            add(goalsCombo);
 
-        // add new person
-        submitButton.addActionListener((ActionEvent e) -> {
+            // back button
+            backButton = new JButton("<-");
+            backButton.setLocation(27, 480);
+            backButton.setSize(50, 50);
+            add(backButton);
 
-            try {
-                String personName = nameTField.getText();
-                int personAge = Integer.parseInt(ageTField.getText());
-                int personHeightFeet = feet[feetCombo.getSelectedIndex()];
-                int personHeightInches = inches[inchCombo.getSelectedIndex()];
-                int personWeight = Integer.parseInt(weightTFLabel.getText());
-                String personActivityLevel = activityLevelsOptions[actCombo.getSelectedIndex()];
-                String personGoals = goalsOptions[goalsCombo.getSelectedIndex()];
+            // submit button
+            JButton submitButton = new JButton("<html><span color=\"white\">Submit</span></html>");
+            submitButton.setBackground(new Color(211, 96, 90));
+            submitButton.setOpaque(true);
+            submitButton.setBorderPainted(false);
+            submitButton.setLocation(150, 380);
+            submitButton.setSize(160, 50);
+            submitButton.setFont(customFont);
+            add(submitButton);
 
-                Person newPerson = new Person(personName, personAge, personHeightFeet, personHeightInches,
-                        personWeight,
-                        personActivityLevel, personGoals);
+            // add new person
+            submitButton.addActionListener((ActionEvent e) -> {
 
-                uManager.addPerson(newPerson);
+                try {
+                    String personName = nameTField.getText();
+                    int personAge = Integer.parseInt(ageTField.getText());
+                    int personHeightFeet = feet[feetCombo.getSelectedIndex()];
+                    int personHeightInches = inches[inchCombo.getSelectedIndex()];
+                    int personWeight = Integer.parseInt(weightTFLabel.getText());
+                    String personActivityLevel = activityLevelsOptions[actCombo.getSelectedIndex()];
+                    String personGoals = goalsOptions[goalsCombo.getSelectedIndex()];
 
-            } catch (Exception exc) {
+                    Person newPerson = new Person(personName, personAge, personHeightFeet, personHeightInches,
+                            personWeight,
+                            personActivityLevel, personGoals);
 
-                ErrorFrame personError = new ErrorFrame("Please fill out all the information");
-                personError.setVisible(true);
+                    uManager.addPerson(newPerson);
 
-            }
-        });
+                    ConfirmationFrame confirmed = new ConfirmationFrame("Person succesfully added");
+                    confirmed.setVisible(true);
 
-        setVisible(true);
+                } catch (Exception exc) {
+
+                    ErrorFrame personError = new ErrorFrame("Please fill out all the information");
+                    personError.setVisible(true);
+
+                }
+            });
+
+            setVisible(true);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public JButton getBackButton() {

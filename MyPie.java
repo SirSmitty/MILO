@@ -31,9 +31,9 @@ class MyPie extends JComponent {
 
   public void changeSlices(CalorieCalculator calc) {
     calculate(calc);
-    Slice proteinSlice = new Slice(calc.getProtein(), Color.BLUE);
-    Slice carbsSlice = new Slice(calc.getCarbs(), Color.RED);
-    Slice fatsSlice = new Slice(calc.getFats(), Color.GREEN);
+    Slice proteinSlice = new Slice(calc.getProtein(), new Color(211, 96, 90));
+    Slice carbsSlice = new Slice(calc.getCarbs(), new Color(65, 68, 68));
+    Slice fatsSlice = new Slice(calc.getFats(), new Color(140, 136, 97));
     slices[0] = proteinSlice;
     slices[1] = carbsSlice;
     slices[2] = fatsSlice;

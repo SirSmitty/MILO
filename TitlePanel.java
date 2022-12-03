@@ -34,14 +34,27 @@ class TitlePanel extends JPanel {
             setBackground(Color.WHITE);
             setLayout(null);
             // miloLabel.setVisible(true);
-            personInput = new JButton("<html><span color=\"#D3605A\">Person Input</span></html>");
+            personInput = new JButton("<html><span color=\"white\">Person Input</span></html>");
             personInput.setFont(buttonFont);
-            calorieTracker = new JButton("<html><span color=\"#D3605A\">Calorie Tracker</span></html>");
+            personInput.setBackground(new Color(211, 96, 90));
+            personInput.setOpaque(true);
+            personInput.setBorderPainted(false);
+            calorieTracker = new JButton("<html><span color=\"white\">Calorie Tracker</span></html>");
             calorieTracker.setFont(buttonFont);
-            dailyIntake = new JButton("<html><span color=\"#D3605A\">Daily Food Intake</span></html>");
+            calorieTracker.setBackground(new Color(211, 96, 90));
+            calorieTracker.setOpaque(true);
+            calorieTracker.setBorderPainted(false);
+            dailyIntake = new JButton("<html><span color=\"white\">Daily Food Intake</span></html>");
             dailyIntake.setFont(buttonFont);
-            workoutPlan = new JButton("<html><span color=\"#D3605A\">Workout Plan</span></html>");
+            dailyIntake.setBackground(new Color(211, 96, 90));
+            dailyIntake.setOpaque(true);
+            dailyIntake.setBorderPainted(false);
+            workoutPlan = new JButton("<html><span color=\"white\">Workout Plan</span></html>");
             workoutPlan.setFont(buttonFont);
+            workoutPlan.setBackground(new Color(211, 96, 90));
+            workoutPlan.setOpaque(true);
+            workoutPlan.setBorderPainted(false);
+
             dailyIntake.setLocation(buttonX, buttonY);
             dailyIntake.setSize(buttonWidth, buttonHeight);
             buttonY -= 75;
@@ -88,7 +101,7 @@ class TitlePanel extends JPanel {
         super.paintComponent(g);
         ImageIcon background = new ImageIcon("assets/miloC.png");
         Image backgroundImage = background.getImage(); // transform it
-        Image backgroundResizeImage = backgroundImage.getScaledInstance(500, 550, java.awt.Image.SCALE_SMOOTH);
+        Image backgroundResizeImage = backgroundImage.getScaledInstance(500, 500, java.awt.Image.SCALE_SMOOTH);
         ImageIcon backgroundFinal = new ImageIcon(backgroundResizeImage);
         backgroundFinal.paintIcon(this, g, 0, 0);
     }
