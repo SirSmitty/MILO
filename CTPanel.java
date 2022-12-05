@@ -19,12 +19,9 @@ public class CTPanel extends JPanel {
         this.setBackground(Color.WHITE);
         this.setLayout(null);
 
-        backButton = new JButton("<html><span color=\"white\"></span></html>");
+        backButton = new JButton("<-");
         backButton.setLocation(27, 600);
         backButton.setSize(50, 50);
-        backButton.setBackground(new Color(211, 96, 90));
-        backButton.setOpaque(true);
-        backButton.setBorderPainted(false);
         add(backButton);
 
         setVisible(true);
@@ -64,42 +61,47 @@ public class CTPanel extends JPanel {
             this.add(calorieCountLabel);
 
             // Protein label
-            JLabel Protein = new JLabel("Daily Protein intake");
+            JLabel Protein = new JLabel(
+                    "<html><span bgcolor=\"white\" color=\"#d3605a\">Daily Protein Intake</span></html>");
             Protein.setLocation(50, 210);
             Protein.setSize(150, 50);
             Protein.setFont(customFont);
             this.add(Protein);
             // protein count label
             String proteinCount = Integer.toString(calculator.getProtein());
-            JLabel proteinCountLabel = new JLabel(proteinCount);
+            JLabel proteinCountLabel = new JLabel(
+                    "<html><span bgcolor=\"white\" color=\"#d3605a\">" + proteinCount + "</span></html>");
             proteinCountLabel.setLocation(50, 230);
             proteinCountLabel.setSize(50, 50);
             proteinCountLabel.setFont(customFont);
             this.add(proteinCountLabel);
 
             // carbs label
-            JLabel Carbs = new JLabel("Daily Carbs intake");
+            JLabel Carbs = new JLabel(
+                    "<html><span bgcolor=\"white\" color=\"#414444\">Daily Carb Intake</span></html>");
             Carbs.setLocation(50, 270);
             Carbs.setSize(150, 50);
             Carbs.setFont(customFont);
             this.add(Carbs);
             // carbs count label
             String carbsCount = Integer.toString(calculator.getCarbs());
-            JLabel carbsCountLabel = new JLabel(carbsCount);
+            JLabel carbsCountLabel = new JLabel(
+                    "<html><span bgcolor=\"white\" color=\"#414444\">" + carbsCount + "</span></html>");
             carbsCountLabel.setLocation(50, 290);
             carbsCountLabel.setSize(50, 50);
             carbsCountLabel.setFont(customFont);
             this.add(carbsCountLabel);
 
             // Fats label
-            JLabel Fats = new JLabel("Daily Fat intake");
+            JLabel Fats = new JLabel("<html><span bgcolor=\"white\" color=\"#8c8861\">Daily Fat</span></html>");
             Fats.setLocation(50, 330);
             Fats.setSize(150, 50);
             Fats.setFont(customFont);
             this.add(Fats);
             // fats count label
             String FatsCount = Integer.toString(calculator.getFats());
-            JLabel fatsCountLabel = new JLabel(FatsCount);
+            JLabel fatsCountLabel = new JLabel(
+                    "<html><span bgcolor=\"white\" color=\"#8c8861\">" + FatsCount + "</span></html>");
             fatsCountLabel.setLocation(50, 350);
             fatsCountLabel.setSize(50, 50);
             fatsCountLabel.setFont(customFont);
@@ -108,13 +110,13 @@ public class CTPanel extends JPanel {
             // people change stuff
             JComboBox<String> peopleBox = new JComboBox<>(uManager.getPeopleNames());
             peopleBox.setLocation(100, 50);
-            peopleBox.setSize(120, 35);
+            peopleBox.setSize(150, 45);
             peopleBox.setFont(customFont);
             this.add(peopleBox);
 
-            JButton changeButton = new JButton("Change Person");
+            JButton changeButton = new JButton("Change");
             changeButton.setLocation(250, 50);
-            changeButton.setSize(90, 30);
+            changeButton.setSize(150, 40);
             changeButton.setFont(customFont);
             changeButton.addActionListener((ActionEvent e) -> {
                 activePerson = changePerson(uManager, peopleBox.getSelectedIndex());
