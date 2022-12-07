@@ -59,26 +59,26 @@ public class DFTpanel extends JPanel {
             // Macro labels stuff
             JLabel totalCaloriesL = new JLabel(
                     "Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
-            totalCaloriesL.setLocation(270, 450);
+            totalCaloriesL.setLocation(270, 350);
             totalCaloriesL.setSize(200, 30);
             add(totalCaloriesL);
             totalCaloriesL.setFont(customFont);
             JLabel totalCarbsL = new JLabel(
                     "Total Carbs: " + activePerson.getCurrentCarbs() + "/" + calculator.getCarbs());
-            totalCarbsL.setLocation(270, 480);
+            totalCarbsL.setLocation(270, 380);
             totalCarbsL.setSize(200, 30);
             add(totalCarbsL);
             totalCarbsL.setFont(customFont);
 
             JLabel totalProteinL = new JLabel(
                     "Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
-            totalProteinL.setLocation(270, 510);
+            totalProteinL.setLocation(270, 410);
             totalProteinL.setSize(200, 30);
             add(totalProteinL);
             totalProteinL.setFont(customFont);
 
             JLabel totalFatL = new JLabel("Total Fat: " + activePerson.getCurrentFats() + "/" + calculator.getFats());
-            totalFatL.setLocation(270, 540);
+            totalFatL.setLocation(270, 440);
             totalFatL.setSize(200, 30);
             add(totalFatL);
             totalFatL.setFont(customFont);
@@ -130,7 +130,7 @@ public class DFTpanel extends JPanel {
             list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
             list.setVisibleRowCount(8);
             list.setLocation(50, 300);
-            list.setSize(150, 150);
+            list.setSize(150, 225);
             JScrollPane listScroller = new JScrollPane(list);
             listScroller.setPreferredSize(new Dimension(250, 80));
             add(list);
