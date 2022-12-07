@@ -20,8 +20,12 @@ public class CTPanel extends JPanel {
         this.setLayout(null);
 
         backButton = new JButton("<-");
+        backButton.setForeground(Color.WHITE);
         backButton.setLocation(27, 600);
-        backButton.setSize(50, 50);
+        backButton.setSize(75, 55);
+        backButton.setBackground(new Color(211, 96, 90));
+        backButton.setOpaque(true);
+        backButton.setBorderPainted(false);
         add(backButton);
 
         setVisible(true);
@@ -47,15 +51,17 @@ public class CTPanel extends JPanel {
             calculator.setPersonforCalc(activePerson);
             calculator.calculateMacros();
             // calories label
-            JLabel Calories = new JLabel("Daily Calorie count");
+            JLabel Calories = new JLabel(
+                    "<html><span bgcolor=\"white\" color=\"black\">Daily Calorie Count</span></html>");
             Calories.setLocation(50, 150);
             Calories.setSize(150, 50);
             Calories.setFont(customFont);
             add(Calories);
             // calorie count label
             String calCount = Integer.toString(calculator.getCalories());
-            JLabel calorieCountLabel = new JLabel(calCount);
-            calorieCountLabel.setLocation(50, 170);
+            JLabel calorieCountLabel = new JLabel(
+                    "<html><span bgcolor=\"white\" color=\"black\">" + calCount + "</span></html>");
+            calorieCountLabel.setLocation(50, 180);
             calorieCountLabel.setSize(50, 50);
             calorieCountLabel.setFont(customFont);
             this.add(calorieCountLabel);
@@ -63,7 +69,7 @@ public class CTPanel extends JPanel {
             // Protein label
             JLabel Protein = new JLabel(
                     "<html><span bgcolor=\"white\" color=\"#d3605a\">Daily Protein Intake</span></html>");
-            Protein.setLocation(50, 210);
+            Protein.setLocation(50, 220);
             Protein.setSize(150, 50);
             Protein.setFont(customFont);
             this.add(Protein);
@@ -71,7 +77,7 @@ public class CTPanel extends JPanel {
             String proteinCount = Integer.toString(calculator.getProtein());
             JLabel proteinCountLabel = new JLabel(
                     "<html><span bgcolor=\"white\" color=\"#d3605a\">" + proteinCount + "</span></html>");
-            proteinCountLabel.setLocation(50, 230);
+            proteinCountLabel.setLocation(50, 250);
             proteinCountLabel.setSize(50, 50);
             proteinCountLabel.setFont(customFont);
             this.add(proteinCountLabel);
@@ -79,7 +85,7 @@ public class CTPanel extends JPanel {
             // carbs label
             JLabel Carbs = new JLabel(
                     "<html><span bgcolor=\"white\" color=\"#414444\">Daily Carb Intake</span></html>");
-            Carbs.setLocation(50, 270);
+            Carbs.setLocation(50, 290);
             Carbs.setSize(150, 50);
             Carbs.setFont(customFont);
             this.add(Carbs);
@@ -87,14 +93,14 @@ public class CTPanel extends JPanel {
             String carbsCount = Integer.toString(calculator.getCarbs());
             JLabel carbsCountLabel = new JLabel(
                     "<html><span bgcolor=\"white\" color=\"#414444\">" + carbsCount + "</span></html>");
-            carbsCountLabel.setLocation(50, 290);
+            carbsCountLabel.setLocation(50, 320);
             carbsCountLabel.setSize(50, 50);
             carbsCountLabel.setFont(customFont);
             this.add(carbsCountLabel);
 
             // Fats label
             JLabel Fats = new JLabel("<html><span bgcolor=\"white\" color=\"#8c8861\">Daily Fat</span></html>");
-            Fats.setLocation(50, 330);
+            Fats.setLocation(50, 360);
             Fats.setSize(150, 50);
             Fats.setFont(customFont);
             this.add(Fats);
@@ -102,7 +108,7 @@ public class CTPanel extends JPanel {
             String FatsCount = Integer.toString(calculator.getFats());
             JLabel fatsCountLabel = new JLabel(
                     "<html><span bgcolor=\"white\" color=\"#8c8861\">" + FatsCount + "</span></html>");
-            fatsCountLabel.setLocation(50, 350);
+            fatsCountLabel.setLocation(50, 380);
             fatsCountLabel.setSize(50, 50);
             fatsCountLabel.setFont(customFont);
             this.add(fatsCountLabel);
@@ -114,10 +120,13 @@ public class CTPanel extends JPanel {
             peopleBox.setFont(customFont);
             this.add(peopleBox);
 
-            JButton changeButton = new JButton("Change");
+            JButton changeButton = new JButton("<html><span color=\"white\">Change</span></html>");
             changeButton.setLocation(250, 50);
             changeButton.setSize(150, 40);
             changeButton.setFont(customFont);
+            changeButton.setBackground(new Color(211, 96, 90));
+            changeButton.setOpaque(true);
+            changeButton.setBorderPainted(false);
             changeButton.addActionListener((ActionEvent e) -> {
                 activePerson = changePerson(uManager, peopleBox.getSelectedIndex());
                 changeLabels(activePerson, calculator, calorieCountLabel, proteinCountLabel, carbsCountLabel,

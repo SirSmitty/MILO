@@ -26,8 +26,12 @@ public class DFTpanel extends JPanel {
         this.setLayout(null);
 
         backButton = new JButton("<-");
+        backButton.setForeground(Color.WHITE);
         backButton.setLocation(27, 600);
-        backButton.setSize(50, 50);
+        backButton.setSize(75, 55);
+        backButton.setBackground(new Color(211, 96, 90));
+        backButton.setOpaque(true);
+        backButton.setBorderPainted(false);
         add(backButton);
 
         setVisible(true);
@@ -38,7 +42,7 @@ public class DFTpanel extends JPanel {
         init = true;
         try {
             // create the font to use. Specify the size!
-            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("assets/Objective-ExtraBoldSlanted.otf"))
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("assets/Objective-RegularSlanted.otf"))
                     .deriveFont(18f);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             // register the font
@@ -56,26 +60,26 @@ public class DFTpanel extends JPanel {
             JLabel totalCaloriesL = new JLabel(
                     "Total Calories: " + activePerson.getCurrentCalories() + "/" + calculator.getCalories());
             totalCaloriesL.setLocation(270, 450);
-            totalCaloriesL.setSize(150, 30);
+            totalCaloriesL.setSize(200, 30);
             add(totalCaloriesL);
             totalCaloriesL.setFont(customFont);
             JLabel totalCarbsL = new JLabel(
                     "Total Carbs: " + activePerson.getCurrentCarbs() + "/" + calculator.getCarbs());
             totalCarbsL.setLocation(270, 480);
-            totalCarbsL.setSize(150, 30);
+            totalCarbsL.setSize(200, 30);
             add(totalCarbsL);
             totalCarbsL.setFont(customFont);
 
             JLabel totalProteinL = new JLabel(
                     "Total Protein: " + activePerson.getCurrentProtein() + "/" + calculator.getProtein());
             totalProteinL.setLocation(270, 510);
-            totalProteinL.setSize(150, 30);
+            totalProteinL.setSize(200, 30);
             add(totalProteinL);
             totalProteinL.setFont(customFont);
 
             JLabel totalFatL = new JLabel("Total Fat: " + activePerson.getCurrentFats() + "/" + calculator.getFats());
             totalFatL.setLocation(270, 540);
-            totalFatL.setSize(150, 30);
+            totalFatL.setSize(200, 30);
             add(totalFatL);
             totalFatL.setFont(customFont);
 
@@ -126,7 +130,7 @@ public class DFTpanel extends JPanel {
             list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
             list.setVisibleRowCount(8);
             list.setLocation(50, 300);
-            list.setSize(80, 80);
+            list.setSize(150, 150);
             JScrollPane listScroller = new JScrollPane(list);
             listScroller.setPreferredSize(new Dimension(250, 80));
             add(list);

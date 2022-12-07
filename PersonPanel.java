@@ -149,8 +149,12 @@ public class PersonPanel extends JPanel {
 
             // back button
             backButton = new JButton("<-");
-            backButton.setLocation(27, 480);
-            backButton.setSize(50, 50);
+            backButton.setForeground(Color.WHITE);
+            backButton.setLocation(27, 470);
+            backButton.setSize(75, 55);
+            backButton.setBackground(new Color(211, 96, 90));
+            backButton.setOpaque(true);
+            backButton.setBorderPainted(false);
             add(backButton);
 
             // submit button

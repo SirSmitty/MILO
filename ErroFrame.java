@@ -21,7 +21,7 @@ class ErrorFrame extends JFrame {
         add(errorPanel);
 
         JLabel errorLabel = new JLabel("<html><span bgcolor=\"red\">" + errorText + "</span></html>");
-        errorLabel.setLocation(0, 0);
+        errorLabel.setLocation(0, 20);
         errorLabel.setSize(100, 100);
         errorLabel.setFont(new Font("Times New Roman", Font.BOLD, 20));
         errorPanel.add(errorLabel);

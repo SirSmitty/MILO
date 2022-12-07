@@ -9,7 +9,7 @@ class ConfirmationFrame extends JFrame {
     public ConfirmationFrame(String confirmText) {
 
         setTitle("CONFIRMED");
-        setSize(400, 200);
+        setSize(400, 100);
         setVisible(false);
         setResizable(false);
         setLocationRelativeTo(null);

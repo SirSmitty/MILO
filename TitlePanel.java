@@ -7,6 +7,7 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import javax.swing.border.Border;
 import java.io.IOException;
+import javax.swing.SwingConstants;
 
 // implements ActionListener 
 class TitlePanel extends JPanel {
@@ -21,7 +22,7 @@ class TitlePanel extends JPanel {
         try {
             // create the font to use. Specify the size!
             Font buttonFont = Font.createFont(Font.TRUETYPE_FONT, new File("assets/Objective-ExtraBoldSlanted.otf"))
-                    .deriveFont(12f);
+                    .deriveFont(18f);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             // register the font
             ge.registerFont(buttonFont);
@@ -44,7 +45,7 @@ class TitlePanel extends JPanel {
             calorieTracker.setBackground(new Color(211, 96, 90));
             calorieTracker.setOpaque(true);
             calorieTracker.setBorderPainted(false);
-            dailyIntake = new JButton("<html><span color=\"white\">Daily Food Intake</span></html>");
+            dailyIntake = new JButton("<html><span color=\"white\">Food Tracker</span></html>");
             dailyIntake.setFont(buttonFont);
             dailyIntake.setBackground(new Color(211, 96, 90));
             dailyIntake.setOpaque(true);
