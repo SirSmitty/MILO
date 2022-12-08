@@ -13,12 +13,7 @@ import java.io.IOException;
 
 public class DFTpanel extends JPanel {
     private JButton backButton;
-    private int calorieSum = 0;
-    private int proteinSum = 0;
-    private int carbSum = 0;
-    private int fatSum = 0;
     private Person activePerson;
-
     private boolean init = false;
 
     public DFTpanel() {
@@ -49,7 +44,7 @@ public class DFTpanel extends JPanel {
             ge.registerFont(customFont);
 
             activePerson = changePerson(uManager, 0);
-            CalorieCalculator calculator = new CalorieCalculator();
+            CalorieCalculator calculator = CalorieCalculator.getCalc();
             calculator.setPersonforCalc(activePerson);
             calculator.calculateMacros();
 

@@ -42,9 +42,8 @@ public class CTPanel extends JPanel {
             // register the font
             ge.registerFont(customFont);
 
-            CalorieCalculator calculator = new CalorieCalculator();
+            CalorieCalculator calculator = CalorieCalculator.getCalc();
 
-            // for testing
             activePerson = changePerson(uManager, 0);
             pieGraph = new MyPie(activePerson);
 

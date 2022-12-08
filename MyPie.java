@@ -10,7 +10,7 @@ class MyPie extends JComponent {
 
   public MyPie(Person p) {
     person = p;
-    CalorieCalculator calc = new CalorieCalculator();
+    CalorieCalculator calc = CalorieCalculator.getCalc();
     calculate(calc);
     changeSlices(calc);
   }

@@ -7,7 +7,17 @@ public class CalorieCalculator{
     private int carbs;
     private int fats;
 
-    public CalorieCalculator(){}
+    private static CalorieCalculator calCalc = null;
+
+    private CalorieCalculator(){}
+
+    public static CalorieCalculator getCalc(){
+        if(calCalc == null){
+            calCalc = new CalorieCalculator();
+        }
+        return calCalc;
+
+    }
 
     public void setPersonforCalc(Person p){
         person = p;
