@@ -1,10 +1,6 @@
 import javax.swing.*;
-
-import org.json.CookieList;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.*;
 
 class ErrorFrame extends JFrame {
 

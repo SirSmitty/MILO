@@ -3,18 +3,13 @@ import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.*;
-import javax.swing.BorderFactory;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.*;
-import javax.swing.Timer;
 import java.io.IOException;
 import java.io.File;
 
 public class PersonPanel extends JPanel {
 
     JButton backButton;
-    private Timer timerLabel;
 
     public PersonPanel(UserManager uManager) {
 

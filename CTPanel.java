@@ -5,7 +5,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionEvent;
 import java.io.File;
-import javax.swing.border.Border;
 import java.io.IOException;
 
 public class CTPanel extends JPanel {

@@ -2,12 +2,8 @@ import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.imageio.ImageIO;
 import java.io.File;
-import javax.swing.border.Border;
 import java.io.IOException;
-import javax.swing.SwingConstants;
 
 // implements ActionListener 
 class TitlePanel extends JPanel {
