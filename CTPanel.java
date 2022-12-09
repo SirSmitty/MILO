@@ -172,10 +172,14 @@ public class CTPanel extends JPanel {
 
         calculator.setPersonforCalc(person);
         calculator.calculateMacros();
-        cLabel.setText(Integer.toString(calculator.getCalories()));
-        pLabel.setText(Integer.toString(calculator.getProtein()));
-        carbLabel.setText(Integer.toString(calculator.getCarbs()));
-        fLabel.setText(Integer.toString(calculator.getFats()));
+        cLabel.setText("<html><span bgcolor=\"white\" color=\"black\">" + Integer.toString(calculator.getCalories())
+                + "</span></html>");
+        pLabel.setText("<html><span bgcolor=\"white\" color=\"#d3605a\">" + Integer.toString(calculator.getProtein())
+                + "</span></html>");
+        carbLabel.setText("<html><span bgcolor=\"white\" color=\"#414444\">" + Integer.toString(calculator.getCarbs())
+                + "</span></html>");
+        fLabel.setText("<html><span bgcolor=\"white\" color=\"#8c8861\">" + Integer.toString(calculator.getFats())
+                + "</span></html>");
     }
 
 }
