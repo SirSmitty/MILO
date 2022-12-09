@@ -3,18 +3,13 @@ import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.*;
-import javax.swing.BorderFactory;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.*;
-import javax.swing.Timer;
 import java.io.IOException;
 import java.io.File;
 
 public class PersonPanel extends JPanel {
 
     JButton backButton;
-    private Timer timerLabel;
 
     public PersonPanel(UserManager uManager) {
 
@@ -143,15 +138,16 @@ public class PersonPanel extends JPanel {
 
             // Goals Combo
             goalsCombo.setLocation(150, 320);
-            goalsCombo.setSize(100, 45);
+            goalsCombo.setSize(150, 45);
             goalsCombo.setFont(customFont);
             add(goalsCombo);
 
             // back button
             backButton = new JButton("<-");
+            backButton.setFont(customFont);
             backButton.setForeground(Color.WHITE);
-            backButton.setLocation(27, 470);
-            backButton.setSize(75, 55);
+            backButton.setLocation(27, 460);
+            backButton.setSize(60, 50);
             backButton.setBackground(new Color(211, 96, 90));
             backButton.setOpaque(true);
             backButton.setBorderPainted(false);
