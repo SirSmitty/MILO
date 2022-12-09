@@ -90,9 +90,12 @@ public class DFTpanel extends JPanel {
             changeButton.setOpaque(true);
             changeButton.setBorderPainted(false);
             changeButton.addActionListener((ActionEvent e) -> {
-
                 activePerson = changePerson(uManager, peopleBox.getSelectedIndex());
                 calculator.setPersonforCalc(activePerson);
+                activePerson.setCurCal(0);
+                activePerson.setCurCarbs(0);
+                activePerson.setCurProtein(0);
+                activePerson.setCurFats(0);
                 calculator.calculateMacros();
                 totalCaloriesL
                         .setText("Calories: " + activePerson.getCurrentCalories() + "/"

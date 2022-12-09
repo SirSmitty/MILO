@@ -90,6 +90,22 @@ public class Person {
         return currentFats;
     }
 
+    public void setCurCal(int n){
+        currentCalories = n;
+    }
+
+    public void setCurProtein(int n){
+        currentProtein = n;
+    }
+
+    public void setCurCarbs(int n){
+        currentCarbs = n;
+    }
+
+    public void setCurFats(int n){
+        currentFats = n;
+    }
+
     public void setName(String n) {
         name = n;
     }
