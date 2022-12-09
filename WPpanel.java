@@ -7,9 +7,13 @@ import javax.swing.BorderFactory;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
+import java.io.File;
+import java.io.IOException;
+
 
 public class WPpanel extends JPanel {
-    JButton backButton;
+    private boolean init = false;
+    private JButton backButton;
 
     public WPpanel() {
         setBackground(Color.WHITE);
@@ -19,14 +23,37 @@ public class WPpanel extends JPanel {
 
         // sets up Back Button
         backButton = new JButton("<-");
-        backButton.setLocation(50, 600);
-        backButton.setSize(50, 50);
-        add(backButton);
+        backButton.setLocation(27, 590);
+        backButton.setSize(60, 50);
+        backButton.setBackground(new Color(211, 96, 90));
+        backButton.setForeground(Color.WHITE);
+        backButton.setOpaque(true);
+        backButton.setBorderPainted(false);
+        
+    }
+    
+    public void initialize(UserManager uManager) {
+        init = true;
+        try{
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("assets/Objective-ExtraBoldSlanted.otf"))
+            .deriveFont(18f);
 
+            backButton.setFont(customFont);
+            this.add(backButton);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (FontFormatException e){
+            e.printStackTrace();
+        }
     }
 
     public JButton getBackButton() {
         return backButton;
+    }
+
+    public boolean getInit() {
+        return init;
     }
 
     public void paintComponent(Graphics g) {

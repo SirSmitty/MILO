@@ -43,7 +43,7 @@ class TitleFrame extends JFrame {
                     CTPanel.initialize(uManager);
                 }
                 cards.show(container, "Calorie Tracker");
-                setSize(500, 700);
+                setSize(500, 600);
             } else {
                 ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
                 noPersonError.setVisible(true);
@@ -67,9 +67,12 @@ class TitleFrame extends JFrame {
 
         mainPanel.getWPButton().addActionListener((ActionEvent e) -> {
             if (uManager.getPeople().size() >= 1) {
+                if (!WPpanel.getInit()) {
+                    WPpanel.initialize(uManager);
+                }
+
                 cards.show(container, "Workout Plan");
                 setSize(500, 700);
-
             } else {
                 ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
                 noPersonError.setVisible(true);

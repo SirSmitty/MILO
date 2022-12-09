@@ -62,7 +62,7 @@ class TitlePanel extends JPanel {
             personInput.setLocation(buttonX, buttonY);
             personInput.setSize(buttonWidth, buttonHeight);
             buttonY += 75;
-            buttonX += 250;
+            buttonX += 230;
             workoutPlan.setLocation(buttonX, buttonY);
             workoutPlan.setSize(buttonWidth, buttonHeight);
             buttonY -= 75;

@@ -21,12 +21,11 @@ public class CTPanel extends JPanel {
 
         backButton = new JButton("<-");
         backButton.setForeground(Color.WHITE);
-        backButton.setLocation(27, 600);
-        backButton.setSize(75, 55);
+        backButton.setLocation(27, 490);
+        backButton.setSize(60, 50);
         backButton.setBackground(new Color(211, 96, 90));
         backButton.setOpaque(true);
         backButton.setBorderPainted(false);
-        add(backButton);
 
         setVisible(true);
     }
@@ -37,7 +36,9 @@ public class CTPanel extends JPanel {
         try {
             // create the font to use. Specify the size!
             Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("assets/Objective-ExtraBoldSlanted.otf"))
-                    .deriveFont(18f);
+            .deriveFont(18f);
+            backButton.setFont(customFont);
+            add(backButton);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             // register the font
             ge.registerFont(customFont);
@@ -59,7 +60,7 @@ public class CTPanel extends JPanel {
             // calorie count label
             String calCount = Integer.toString(calculator.getCalories());
             JLabel calorieCountLabel = new JLabel(
-                    "<html><span bgcolor=\"white\" color=\"black\">" + calCount + "</span></html>");
+                    "<html><span bgcolor=\"white\" color=\"#000000\">" + calCount + "</span></html>");
             calorieCountLabel.setLocation(50, 180);
             calorieCountLabel.setSize(50, 50);
             calorieCountLabel.setFont(customFont);
@@ -98,7 +99,7 @@ public class CTPanel extends JPanel {
             this.add(carbsCountLabel);
 
             // Fats label
-            JLabel Fats = new JLabel("<html><span bgcolor=\"white\" color=\"#8c8861\">Daily Fat</span></html>");
+            JLabel Fats = new JLabel("<html><span bgcolor=\"white\" color=\"#8c8861\">Daily Fat Intake</span></html>");
             Fats.setLocation(50, 360);
             Fats.setSize(150, 50);
             Fats.setFont(customFont);
@@ -107,21 +108,21 @@ public class CTPanel extends JPanel {
             String FatsCount = Integer.toString(calculator.getFats());
             JLabel fatsCountLabel = new JLabel(
                     "<html><span bgcolor=\"white\" color=\"#8c8861\">" + FatsCount + "</span></html>");
-            fatsCountLabel.setLocation(50, 380);
+            fatsCountLabel.setLocation(50, 390);
             fatsCountLabel.setSize(50, 50);
             fatsCountLabel.setFont(customFont);
             this.add(fatsCountLabel);
 
             // people change stuff
             JComboBox<String> peopleBox = new JComboBox<>(uManager.getPeopleNames());
-            peopleBox.setLocation(100, 50);
+            peopleBox.setLocation(50, 50);
             peopleBox.setSize(150, 45);
             peopleBox.setFont(customFont);
             this.add(peopleBox);
 
             JButton changeButton = new JButton("<html><span color=\"white\">Change</span></html>");
-            changeButton.setLocation(250, 50);
-            changeButton.setSize(150, 40);
+            changeButton.setLocation(235, 50);
+            changeButton.setSize(150, 45);
             changeButton.setFont(customFont);
             changeButton.setBackground(new Color(211, 96, 90));
             changeButton.setOpaque(true);
@@ -172,10 +173,10 @@ public class CTPanel extends JPanel {
 
         calculator.setPersonforCalc(person);
         calculator.calculateMacros();
-        cLabel.setText(Integer.toString(calculator.getCalories()));
-        pLabel.setText(Integer.toString(calculator.getProtein()));
-        carbLabel.setText(Integer.toString(calculator.getCarbs()));
-        fLabel.setText(Integer.toString(calculator.getFats()));
+        cLabel.setText("<html><span bgcolor=\"white\" color=\"#000000\">" + Integer.toString(calculator.getCalories()) + "</span></html>");
+        pLabel.setText("<html><span bgcolor=\"white\" color=\"#d3605a\">" + Integer.toString(calculator.getProtein()) + "</span></html>");
+        carbLabel.setText("<html><span bgcolor=\"white\" color=\"#414444\">" + Integer.toString(calculator.getCarbs()) + "</span></html>"); 
+        fLabel.setText("<html><span bgcolor=\"white\" color=\"#8c8861\">" + Integer.toString(calculator.getFats()) + "</span></html>");
     }
 
 }
