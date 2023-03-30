@@ -3,7 +3,15 @@
         "include": [
             "lib/**/*.jar",
             "/Users/ethansmith/Downloads/json-20220924 (1).jar",
-            "json-20220924_1.jar"
+            "json-20220924_1.jar",
+            "/Users/kennyly/Desktop/javafx-sdk-20/lib/javafx-swt.jar",
+            "/Users/kennyly/Desktop/javafx-sdk-20/lib/javafx.base.jar",
+            "/Users/kennyly/Desktop/javafx-sdk-20/lib/javafx.controls.jar",
+            "/Users/kennyly/Desktop/javafx-sdk-20/lib/javafx.fxml.jar",
+            "/Users/kennyly/Desktop/javafx-sdk-20/lib/javafx.graphics.jar",
+            "/Users/kennyly/Desktop/javafx-sdk-20/lib/javafx.media.jar",
+            "/Users/kennyly/Desktop/javafx-sdk-20/lib/javafx.swing.jar",
+            "/Users/kennyly/Desktop/javafx-sdk-20/lib/javafx.web.jar"
         ],
         "exclude": [
             "lib/json-20220924.jar"
