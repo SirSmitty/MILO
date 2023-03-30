@@ -11,7 +11,15 @@
             "/Users/kennyly/Desktop/javafx-sdk-20/lib/javafx.graphics.jar",
             "/Users/kennyly/Desktop/javafx-sdk-20/lib/javafx.media.jar",
             "/Users/kennyly/Desktop/javafx-sdk-20/lib/javafx.swing.jar",
-            "/Users/kennyly/Desktop/javafx-sdk-20/lib/javafx.web.jar"
+            "/Users/kennyly/Desktop/javafx-sdk-20/lib/javafx.web.jar",
+            "c:\\Users\\edgar\\OneDrive\\Desktop\\Java\\openjfx-20_windows-x64_bin-sdk\\javafx-sdk-20\\lib\\javafx.base.jar",
+            "c:\\Users\\edgar\\OneDrive\\Desktop\\Java\\openjfx-20_windows-x64_bin-sdk\\javafx-sdk-20\\lib\\javafx.controls.jar",
+            "c:\\Users\\edgar\\OneDrive\\Desktop\\Java\\openjfx-20_windows-x64_bin-sdk\\javafx-sdk-20\\lib\\javafx.fxml.jar",
+            "c:\\Users\\edgar\\OneDrive\\Desktop\\Java\\openjfx-20_windows-x64_bin-sdk\\javafx-sdk-20\\lib\\javafx.graphics.jar",
+            "c:\\Users\\edgar\\OneDrive\\Desktop\\Java\\openjfx-20_windows-x64_bin-sdk\\javafx-sdk-20\\lib\\javafx.media.jar",
+            "c:\\Users\\edgar\\OneDrive\\Desktop\\Java\\openjfx-20_windows-x64_bin-sdk\\javafx-sdk-20\\lib\\javafx.swing.jar",
+            "c:\\Users\\edgar\\OneDrive\\Desktop\\Java\\openjfx-20_windows-x64_bin-sdk\\javafx-sdk-20\\lib\\javafx.web.jar",
+            "c:\\Users\\edgar\\OneDrive\\Desktop\\Java\\openjfx-20_windows-x64_bin-sdk\\javafx-sdk-20\\lib\\javafx-swt.jar"
         ],
         "exclude": [
             "lib/json-20220924.jar"
