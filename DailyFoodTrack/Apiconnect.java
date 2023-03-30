@@ -1,3 +1,4 @@
+package DailyFoodTrack;
 
 import java.io.*;
 import java.lang.Object;

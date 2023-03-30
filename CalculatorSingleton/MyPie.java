@@ -1,9 +1,13 @@
+package CalculatorSingleton;
 import javax.swing.JComponent;
+
+import PersonManagement.Person;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-class MyPie extends JComponent {
+public class MyPie extends JComponent {
   private Slice[] slices = new Slice[3];
   private Person person;
 
@@ -38,7 +42,7 @@ class MyPie extends JComponent {
     slices[2] = fatsSlice;
   }
 
-  void drawPie(Graphics2D g, Rectangle area) {
+  public void drawPie(Graphics2D g, Rectangle area) {
     double total = 0.0D;
     for (int i = 0; i < slices.length; i++) {
       total += slices[i].value;

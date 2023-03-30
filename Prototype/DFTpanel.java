@@ -1,4 +1,15 @@
+package Prototype;
 import javax.swing.JPanel;
+
+import CalculatorSingleton.CalorieCalculator;
+import DailyFoodTrack.Apiconnect;
+import DailyFoodTrack.DailyFoodTracker;
+import DailyFoodTrack.FoodItem;
+import PersonManagement.Person;
+import PersonManagement.UserManager;
+
+import PopUpFrames.ErrorFrame;
+
 import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;

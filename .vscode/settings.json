@@ -19,10 +19,14 @@
             "c:\\Users\\edgar\\OneDrive\\Desktop\\Java\\openjfx-20_windows-x64_bin-sdk\\javafx-sdk-20\\lib\\javafx.media.jar",
             "c:\\Users\\edgar\\OneDrive\\Desktop\\Java\\openjfx-20_windows-x64_bin-sdk\\javafx-sdk-20\\lib\\javafx.swing.jar",
             "c:\\Users\\edgar\\OneDrive\\Desktop\\Java\\openjfx-20_windows-x64_bin-sdk\\javafx-sdk-20\\lib\\javafx.web.jar",
-            "c:\\Users\\edgar\\OneDrive\\Desktop\\Java\\openjfx-20_windows-x64_bin-sdk\\javafx-sdk-20\\lib\\javafx-swt.jar"
+            "c:\\Users\\edgar\\OneDrive\\Desktop\\Java\\openjfx-20_windows-x64_bin-sdk\\javafx-sdk-20\\lib\\javafx-swt.jar",
+            "c:\\Users\\edgar\\Downloads\\json-20220924_1 (1).jar"
         ],
         "exclude": [
             "lib/json-20220924.jar"
         ]
-    }
+    },
+    "java.project.sourcePaths": [
+        ""
+    ]
 }

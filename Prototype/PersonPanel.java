@@ -1,4 +1,12 @@
+package Prototype;
 import javax.swing.JPanel;
+
+import PersonManagement.Person;
+import PersonManagement.UserManager;
+
+import PopUpFrames.ConfirmationFrame;
+import PopUpFrames.ErrorFrame;
+
 import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;

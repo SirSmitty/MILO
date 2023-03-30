@@ -1,3 +1,4 @@
+package CalculatorSingleton;
 import java.awt.Color;
 
 class Slice {

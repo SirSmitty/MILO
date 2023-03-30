@@ -1,3 +1,4 @@
+package DailyFoodTrack;
 public class FoodItem {
     
     private String name;

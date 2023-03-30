@@ -1,8 +1,9 @@
+package PopUpFrames;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-class ConfirmationFrame extends JFrame {
+public class ConfirmationFrame extends JFrame {
 
     public ConfirmationFrame(String confirmText) {
 

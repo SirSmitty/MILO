@@ -1,8 +1,9 @@
+package PopUpFrames;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-class ErrorFrame extends JFrame {
+public class ErrorFrame extends JFrame {
 
     public ErrorFrame(String errorText) {
 

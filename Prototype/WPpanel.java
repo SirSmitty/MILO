@@ -1,4 +1,8 @@
+package Prototype;
 import javax.swing.JPanel;
+
+import PersonManagement.UserManager;
+
 import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.*;
@@ -14,7 +18,6 @@ public class WPpanel extends JPanel {
         setBackground(Color.WHITE);
         setLayout(null);
 
-        Schedule schedule = new Schedule();
 
         // sets up Back Button
         backButton = new JButton("<-");

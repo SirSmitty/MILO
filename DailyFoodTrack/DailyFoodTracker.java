@@ -1,3 +1,4 @@
+package DailyFoodTrack;
 import java.util.*;
 
 public class DailyFoodTracker {
@@ -17,11 +18,6 @@ public class DailyFoodTracker {
     }
 
     public List<String> getFoodNameList() {
-        // List<String> names = new LinkedList<String>();
-        // for (int i = 0; i < foodList.size(); i++) {
-        //     names.add(foodList.get(i).getName());
-        // }
-        // return names;
         return foodNames;
 
     }

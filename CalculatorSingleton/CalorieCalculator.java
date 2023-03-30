@@ -1,3 +1,6 @@
+package CalculatorSingleton;
+
+import PersonManagement.Person;
 public class CalorieCalculator{
 
     private Person person;

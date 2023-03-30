@@ -1,4 +1,11 @@
+package Prototype;
 import javax.swing.JPanel;
+
+import CalculatorSingleton.CalorieCalculator;
+import CalculatorSingleton.MyPie;
+import PersonManagement.Person;
+import PersonManagement.UserManager;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.JButton;

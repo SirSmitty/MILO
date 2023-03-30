@@ -1,8 +1,13 @@
+package Prototype;
 import javax.swing.*;
+
+import PersonManagement.UserManager;
+import PopUpFrames.ErrorFrame;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-class TitleFrame extends JFrame {
+public class TitleFrame extends JFrame {
 
     public TitleFrame() {
 
