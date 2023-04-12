@@ -1,16 +1,17 @@
 package WorkoutFB.Workout;
-import PersonManagement.Person;
 
 public class Day {
 
     private String dayOfWeek;
-    private Person person;
+    private String goals;
+    private int weight;
     private String[] workOuts;
     private String workoutType;
 
-    public Day(String dayOfWeek, Person person, String workoutType) {
+    public Day(String dayOfWeek, String goals, int weight, String workoutType) {
         this.dayOfWeek = dayOfWeek;
-        this.person = person;
+        this.goals = goals;
+        this.weight = weight;
         this.workoutType = workoutType;
     }
 
@@ -18,8 +19,12 @@ public class Day {
         return this.dayOfWeek;
     }
 
-    public Person getPerson() {
-        return this.person;
+    public String getGoals() {
+        return this.goals;
+    }
+
+    public int getWeight(){
+        return this.weight;
     }
 
     public String[] getWorkOuts(){
@@ -49,16 +54,16 @@ public class Day {
         String RDLNums = "";
         String calfRaisesNums = "";
         
-        double loseWeightBigWorkouts = person.getWeight()*.75;
-        double maintainWeightBigWorkouts = person.getWeight();
-        double gainWeightBigWorkouts = person.getWeight()*1.25;
+        double loseWeightBigWorkouts = getWeight()*.75;
+        double maintainWeightBigWorkouts = getWeight();
+        double gainWeightBigWorkouts = getWeight()*1.25;
         
-        double loseWeightSmallWorkouts = person.getWeight()*.15;
-        double maintainWeightSmallWorkouts = person.getWeight()*.2;
-        double gainWeightSmallWorkouts = person.getWeight()*.25;
+        double loseWeightSmallWorkouts = getWeight()*.15;
+        double maintainWeightSmallWorkouts = getWeight()*.2;
+        double gainWeightSmallWorkouts = getWeight()*.25;
 
         
-        switch(this.person.getGoals()){
+        switch(getGoals()){
             case "Lose":
                 benchNums = "set: 10x3, Weight: " + loseWeightBigWorkouts;
                 squatNums = "set: 12x3, Weight: " + loseWeightBigWorkouts;
