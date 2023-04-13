@@ -9,7 +9,7 @@ public class WeekBuilder {
 
     public WeekBuilder(Integer weekNum){
         if (weekNum == null) {
-            throw new IllegalArgumentException("profession and name can not be null");
+            throw new IllegalArgumentException("weekNum can not be null");
           }
         this.weekNum = weekNum;
     }

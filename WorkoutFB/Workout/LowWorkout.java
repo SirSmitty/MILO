@@ -28,5 +28,10 @@ public class LowWorkout implements Workout_IF{
             ));
         }
     }
+
+    @Override
+    public List<Week> getMonth() {
+        return workoutWeeks;
+    }
     
 }
