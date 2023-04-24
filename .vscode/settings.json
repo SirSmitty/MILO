@@ -28,5 +28,8 @@
     },
     "java.project.sourcePaths": [
         ""
+    ],
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "main"
     ]
 }
