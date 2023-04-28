@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class WPpanel extends JPanel {
+public class WPpanel extends CustomPanel{
     private boolean init = false;
     private JButton backButton;
 

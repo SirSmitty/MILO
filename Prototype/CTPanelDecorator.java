@@ -1,4 +1,5 @@
 package Prototype;
+
 import javax.swing.JPanel;
 
 import CalculatorSingleton.CalorieCalculator;
@@ -14,27 +15,13 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 
-public class CTPanel extends CustomPanel {
+//code that is not shared
+public class CTPanelDecorator extends JPanel implements Panel_IF {
 
         private Person activePerson;
         private JButton backButton;
         private MyPie pieGraph;
         private boolean init = false;
-
-        public CTPanel() {
-                this.setBackground(Color.WHITE);
-                this.setLayout(null);
-
-                backButton = new JButton("<-");
-                backButton.setForeground(Color.WHITE);
-                backButton.setLocation(27, 490);
-                backButton.setSize(60, 50);
-                backButton.setBackground(new Color(211, 96, 90));
-                backButton.setOpaque(true);
-                backButton.setBorderPainted(false);
-
-                setVisible(true);
-        }
 
         public void initialize(UserManager uManager) {
 
@@ -157,17 +144,6 @@ public class CTPanel extends CustomPanel {
                         e.printStackTrace();
                 }
 
-        }
-
-        public void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                ImageIcon background = new ImageIcon("assets/milo_blank.jpg");
-                Image backgroundImage = background.getImage(); // transform it
-                Image backgroundResizeImage = backgroundImage.getScaledInstance(500, 700, java.awt.Image.SCALE_SMOOTH);
-                ImageIcon backgroundFinal = new ImageIcon(backgroundResizeImage);
-                backgroundFinal.paintIcon(this, g, 0, 0);
-
-                pieGraph.drawPie((Graphics2D) g, new Rectangle(250, 200, 200, 200));
         }
 
         public JButton getBackButton() {

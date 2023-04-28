@@ -1,4 +1,5 @@
 package Prototype;
+
 import javax.swing.JPanel;
 
 import CalculatorSingleton.CalorieCalculator;
@@ -18,33 +19,19 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 
-public class DFTpanel extends CustomPanel{
+public class DFTPanelDecorator extends JPanel implements Panel_IF {
+
     private JButton backButton;
     private Person activePerson;
     private boolean init = false;
 
-    public DFTpanel() {
-        this.setBackground(Color.WHITE);
-        this.setLayout(null);
-
-        backButton = new JButton("<-");
-        backButton.setForeground(Color.WHITE);
-        backButton.setLocation(27, 590);
-        backButton.setSize(60, 50);
-        backButton.setBackground(new Color(211, 96, 90));
-        backButton.setOpaque(true);
-        backButton.setBorderPainted(false);
-        
-        setVisible(true);
-    }
-    
     public void initialize(UserManager uManager) {
-        
+
         init = true;
         try {
             // create the font to use. Specify the size!
             Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("assets/Objective-ExtraBoldSlanted.otf"))
-            .deriveFont(18f);
+                    .deriveFont(18f);
             backButton.setFont(customFont);
             add(backButton);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -250,18 +237,5 @@ public class DFTpanel extends CustomPanel{
 
     public boolean getInit() {
         return init;
-    }
-
-    public JButton getBackButton() {
-        return backButton;
-    }
-
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        ImageIcon background = new ImageIcon("assets/milo_blank.jpg");
-        Image backgroundImage = background.getImage(); // transform it
-        Image backgroundResizeImage = backgroundImage.getScaledInstance(500, 700, java.awt.Image.SCALE_SMOOTH);
-        ImageIcon backgroundFinal = new ImageIcon(backgroundResizeImage);
-        backgroundFinal.paintIcon(this, g, 0, 0);
     }
 }

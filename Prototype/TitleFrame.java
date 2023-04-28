@@ -1,4 +1,5 @@
 package Prototype;
+
 import javax.swing.*;
 
 import PersonManagement.UserManager;
