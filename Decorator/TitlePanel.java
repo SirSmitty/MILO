@@ -1,4 +1,4 @@
-package Prototype;
+package Decorator;
 import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;

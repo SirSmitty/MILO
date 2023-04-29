@@ -1,4 +1,4 @@
-import Prototype.TitleFrame;
+import Decorator.TitleFrame;
 
 class Main {
     public static void main(String[] args) {

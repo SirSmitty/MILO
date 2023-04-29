@@ -1,4 +1,4 @@
-package Prototype;
+package Decorator;
 
 import javax.swing.*;
 
@@ -24,28 +24,34 @@ public class TitleFrame extends JFrame {
 
         container.setLayout(cards);
 
+    
         TitlePanel mainPanel = new TitlePanel();
-        PersonPanel personPanel = new PersonPanel(uManager);
-        CTPanel CTPanel = new CTPanel();
+
+        BasePanel personPanel = new BasePanel();
+        Panel_IF customPersonPanel = new PersonPanel(uManager, personPanel);
+        
+        BasePanel ctPanel = new BasePanel();
+        Panel_IF CTPanel = new CTPanel(uManager, ctPanel);
+
         DFTpanel DFTpanel = new DFTpanel();
         WPpanel WPpanel = new WPpanel();
 
         add(mainPanel, "main");
         add(personPanel, "person");
-        add(CTPanel, "Calorie Tracker");
+        add(ctPanel, "Calorie Tracker");
         add(DFTpanel, "Daily Intake");
         add(WPpanel, "Workout Plan");
-
+ 
         mainPanel.getPersonButton().addActionListener((ActionEvent e) -> {
             cards.show(container, "person");
-            setSize(500, 570);
+            setSize(500, 600);
 
         });
 
         mainPanel.getCTButton().addActionListener((ActionEvent e) -> {
             if (uManager.getPeople().size() >= 1) {
                 if (!CTPanel.getInit()) {
-                    CTPanel.initialize(uManager);
+                    CTPanel.initialize();
                 }
                 cards.show(container, "Calorie Tracker");
                 setSize(500, 600);
@@ -94,7 +100,7 @@ public class TitleFrame extends JFrame {
             cards.show(container, "main");
         });
 
-        CTPanel.getBackButton().addActionListener((ActionEvent e) -> {
+        ctPanel.getBackButton().addActionListener((ActionEvent e) -> {
             setSize(500, 500);
             cards.show(container, "main");
         });

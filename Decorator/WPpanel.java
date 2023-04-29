@@ -1,4 +1,4 @@
-package Prototype;
+package Decorator;
 import javax.swing.JPanel;
 
 import PersonManagement.UserManager;
@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class WPpanel extends CustomPanel{
+public class WPpanel extends JPanel{
     private boolean init = false;
     private JButton backButton;
 

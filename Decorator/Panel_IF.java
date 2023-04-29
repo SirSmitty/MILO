@@ -1,4 +1,4 @@
-package Prototype;
+package Decorator;
 
 //shape
 import javax.swing.JPanel;
@@ -15,10 +15,9 @@ public interface Panel_IF {
 
     // method
 
-    // void createBackButton();
+    public void initialize();
 
-    // void paintComponent(Graphics g);
 
-    // JButton getBackButton();
+    public boolean getInit();
 
 }
