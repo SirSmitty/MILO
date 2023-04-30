@@ -1,4 +1,4 @@
-package Prototype;
+package Panels;
 import javax.swing.JPanel;
 
 import CalculatorSingleton.CalorieCalculator;

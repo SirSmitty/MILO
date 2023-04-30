@@ -1,4 +1,4 @@
-import Prototype.TitleFrame;
+import Panels.TitleFrame;
 
 class Main {
     public static void main(String[] args) {

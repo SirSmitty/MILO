@@ -1,4 +1,4 @@
-package Prototype;
+package Panels;
 public class PrototypePanel {
     
 }
