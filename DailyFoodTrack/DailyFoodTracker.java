@@ -1,35 +1,46 @@
 package DailyFoodTrack;
-import java.util.*;
+import java.net.URL;
+import java.util.List;
 
-public class DailyFoodTracker {
+public class DailyFoodTracker implements DFTService_IF{
 
-    private List<FoodItem> foodList;
-    private List<String> foodNames;
+    private DFTService_IF api;
 
     public DailyFoodTracker() {
+        api = new Apiconnect();
+    }
 
-        foodList = new LinkedList<FoodItem>();
-        foodNames = new LinkedList<String>();
+    public String connectToApi(String foodString){
+        return api.connectToApi(foodString);
+    }
 
+    public URL createURL(String foodItem){
+        return api.createURL(foodItem);
+    }
+
+    public String createResponseString(URL url){
+        return api.createResponseString(url);
+    }
+
+    public FoodItem getFoodItem(String foodString){
+        return api.getFoodItem(foodString);
     }
 
     public List<FoodItem> getFoodList() {
-        return foodList;
+        return api.getFoodList();
     }
 
     public List<String> getFoodNameList() {
-        return foodNames;
-
+        return api.getFoodNameList();
     }
 
     public void addFood(FoodItem food) {
-        foodList.add(food);
-        foodNames.add(food.getName());
+        api.addFood(food);
     }
 
     public FoodItem removeFood(int foodIndex) {
-        foodNames.remove(foodIndex-1);
-        return foodList.remove(foodIndex - 1);
+        return api.removeFood(foodIndex);
     }
+
 
 }

@@ -2,7 +2,8 @@ package Panels;
 import javax.swing.JPanel;
 
 import CalculatorSingleton.CalorieCalculator;
-import DailyFoodTrack.Apiconnect;
+import DailyFoodTrack.DFTService_IF;
+// import DailyFoodTrack.Apiconnect;
 import DailyFoodTrack.DailyFoodTracker;
 import DailyFoodTrack.FoodItem;
 import PersonManagement.Person;
@@ -56,8 +57,8 @@ public class DFTpanel extends JPanel {
             calculator.setPersonforCalc(activePerson);
             calculator.calculateMacros();
 
-            Apiconnect api = new Apiconnect();
-            DailyFoodTracker dft = new DailyFoodTracker();
+            // Apiconnect api = new Apiconnect();
+            DFTService_IF dft = new DailyFoodTracker();
 
             // Macro labels stuff
             JLabel totalCaloriesL = new JLabel(
@@ -160,7 +161,7 @@ public class DFTpanel extends JPanel {
 
                     String addString = addingText.getText();
 
-                    FoodItem fItem = api.getFoodItem(addString);
+                    FoodItem fItem = dft.getFoodItem(addString);
 
                     dft.addFood(fItem);
 
