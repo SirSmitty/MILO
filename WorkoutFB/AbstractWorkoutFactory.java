@@ -1,8 +1,10 @@
 package WorkoutFB;
 
-public class AbstractWorkoutFactory implements Factory_IF{
+import
 
-    private Person p;
+public class AbstractWorkoutFactory implements Factory_IF {
+
+    private Person person;
 
     public AbstractWorkoutFactory(Person p) {
         this.person = p;
@@ -10,22 +12,26 @@ public class AbstractWorkoutFactory implements Factory_IF{
 
     public Workout_IF createWorkout(String workoutType) {
 
-        switch(workoutType){       
+        Workout_IF workout;
+
+        switch (workoutType) {
             case "lowWorkout":
-                return new LowWorkout(this.person);
+                workout = new LowWorkout(this.person);
                 break;
             case "mediumWorkout":
-                return new MediumWorkout(this.person);
+                workout = new MediumWorkout(this.person);
                 break;
-            case "HighWorkout":
-                return new HighWorkout(this.person);
+            case "highWorkout":
+                workout = new HighWorkout(this.person);
                 break;
             case "extremelyHighWorkout":
-                return new ExtremelyHighWorkout(this.person);
+                workout = new ExtremelyHighWorkout(this.person);
                 break;
             default:
-                return new LowWorkout(this.person);
+                workout = new LowWorkout(this.person);
                 break;
         }
+
+        return workout;
     }
 }
