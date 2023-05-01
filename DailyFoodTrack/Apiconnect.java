@@ -3,14 +3,21 @@ package DailyFoodTrack;
 import java.io.*;
 import java.lang.Object;
 import java.net.*;
+import java.util.LinkedList;
+import java.util.List;
+
 import org.json.*;
 
-public class Apiconnect extends Object {
+public class Apiconnect extends Object implements DFTService_IF {
 
     private String API_KEY;
+    private List<FoodItem> foodList;
+    private List<String> foodNames;
 
     public Apiconnect() {
         API_KEY = "3R9jgQ1YN5sjedHi54WfPDwGO1Pof3d1dAwr4NWQ";
+        foodList = new LinkedList<FoodItem>();
+        foodNames = new LinkedList<String>();
     }
 
     public String connectToApi(String foodString) {
@@ -61,47 +68,71 @@ public class Apiconnect extends Object {
 
     public FoodItem getFoodItem(String foodString) {
 
-        String responseString = connectToApi(foodString.toLowerCase());
+        if (foodNames.contains(foodString)) {
+            return foodList.get(foodNames.indexOf(foodString));
+        } else {
 
-        FoodItem food = new FoodItem(foodString, 0, 0, 0, 0);
+            String responseString = connectToApi(foodString.toLowerCase());
 
-        JSONObject obj = new JSONObject(responseString);
-        JSONArray foodsArray = obj.getJSONArray("foods");
-        JSONObject foodItem = foodsArray.getJSONObject(0);
-        JSONArray foodNutrients = foodItem.getJSONArray("foodNutrients");
-        String packageWeighString = foodItem.getString("packageWeight");
-        packageWeighString = packageWeighString.substring(packageWeighString.lastIndexOf('/') + 1,
-                packageWeighString.lastIndexOf(" "));
-        // this is in grams
-        int packageWeight = Integer.parseInt(packageWeighString);
-        int servingSize = foodItem.getInt("servingSize");
+            FoodItem food = new FoodItem(foodString, 0, 0, 0, 0);
 
-        int gramsPerServing = packageWeight / servingSize;
-        food.setServingSize(gramsPerServing);
+            JSONObject obj = new JSONObject(responseString);
+            JSONArray foodsArray = obj.getJSONArray("foods");
+            JSONObject foodItem = foodsArray.getJSONObject(0);
+            JSONArray foodNutrients = foodItem.getJSONArray("foodNutrients");
+            String packageWeighString = foodItem.getString("packageWeight");
+            packageWeighString = packageWeighString.substring(packageWeighString.lastIndexOf('/') + 1,
+                    packageWeighString.lastIndexOf(" "));
+            // this is in grams
+            int packageWeight = Integer.parseInt(packageWeighString);
+            int servingSize = foodItem.getInt("servingSize");
 
-        String nutrient;
+            int gramsPerServing = packageWeight / servingSize;
+            food.setServingSize(gramsPerServing);
 
-        for (int i = 0; i < foodNutrients.length(); i++) {
+            String nutrient;
 
-            nutrient = foodNutrients.getJSONObject(i).getString("nutrientName");
-            switch (nutrient) {
-                case "Protein":
-                    food.setProtein(foodNutrients.getJSONObject(i).getInt("value"));
-                    break;
-                case "Total lipid (fat)":
-                    food.setFats(foodNutrients.getJSONObject(i).getInt("value"));
-                    break;
-                case "Carbohydrate, by difference":
-                    food.setCarbs(foodNutrients.getJSONObject(i).getInt("value"));
-                    break;
-                default:
-                    break;
+            for (int i = 0; i < foodNutrients.length(); i++) {
+
+                nutrient = foodNutrients.getJSONObject(i).getString("nutrientName");
+                switch (nutrient) {
+                    case "Protein":
+                        food.setProtein(foodNutrients.getJSONObject(i).getInt("value"));
+                        break;
+                    case "Total lipid (fat)":
+                        food.setFats(foodNutrients.getJSONObject(i).getInt("value"));
+                        break;
+                    case "Carbohydrate, by difference":
+                        food.setCarbs(foodNutrients.getJSONObject(i).getInt("value"));
+                        break;
+                    default:
+                        break;
+                }
             }
+
+            food.calcCals();
+            return food;
         }
 
-        food.calcCals();
+    }
 
-        return food;
+    public List<FoodItem> getFoodList() {
+        return foodList;
+    }
+
+    public List<String> getFoodNameList() {
+        return foodNames;
+
+    }
+
+    public void addFood(FoodItem food) {
+        foodList.add(food);
+        foodNames.add(food.getName());
+    }
+
+    public FoodItem removeFood(int foodIndex) {
+        foodNames.remove(foodIndex - 1);
+        return foodList.remove(foodIndex - 1);
     }
 
 }
