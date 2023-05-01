@@ -1,4 +1,4 @@
-package WorkoutFB.Workout;
+package WorkoutFB;
 
 public class Day {
 

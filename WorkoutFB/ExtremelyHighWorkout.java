@@ -1,10 +1,10 @@
-package WorkoutFB.Workout;
+package WorkoutFB;
 
 import java.util.List;
 
 import PersonManagement.Person;
 
-public class MediumWorkout implements Workout_IF{
+public class ExtremelyHighWorkout implements Workout_IF{
 
     private List<Week> workoutWeeks;
 
@@ -12,7 +12,7 @@ public class MediumWorkout implements Workout_IF{
     private String activity;
     private int weight;
 
-    public MediumWorkout(Person p){
+    public ExtremelyHighWorkout(Person p){
         this.goals = p.getGoals();
         this.activity = p.getActivityLevel();
         this.weight = p.getWeight();
