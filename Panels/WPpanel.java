@@ -108,17 +108,6 @@ public class WPpanel extends JPanel {
         backgroundFinal.paintIcon(this, g, 0, 0);
     }
 
-    // public void createLabel(Week week){
-        
-    //     JLabel weekDayLabel = new JLabel();
-        
-    //     int days = week.getDays().size();
-
-    //     for(int i = 0; i < days; i++) {
-            
-    //     }
-    // }
-
 
     public void createMonthLabels(){
 
@@ -129,8 +118,6 @@ public class WPpanel extends JPanel {
         int startY = 100;
 
         for(Week week : workoutWeeks){
-            // week.generateWorkoutWeek();
-            // week.createWorkouts();
             JLabel weekNumberLabel = new JLabel("Week " + week.getWeekNum().toString());
             weekNumberLabel.setLocation(startX, startY);
             weekNumberLabel.setSize(150, 50);
