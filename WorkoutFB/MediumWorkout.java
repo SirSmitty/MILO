@@ -1,12 +1,13 @@
 package WorkoutFB;
 
 import java.util.List;
+import java.util.LinkedList;
 
 import PersonManagement.Person;
 
 public class MediumWorkout implements Workout_IF{
 
-    private List<Week> workoutWeeks;
+    private List<Week> workoutWeeks = new LinkedList<Week>();
 
     private String goals;
     private String activity;
@@ -21,11 +22,11 @@ public class MediumWorkout implements Workout_IF{
     @Override
     public void calculateWorkouts() {
         for(int i = 0; i < 4; i++){
-            workoutWeeks.add(new Week(new WeekBuilder(i+1)
+            workoutWeeks.add(new WeekBuilder(i+1)
             .withGoals(goals)
             .withActivity(activity)
             .withWeight(weight)
-            ));
+            .build());
         }
     }
 

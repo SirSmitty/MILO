@@ -45,6 +45,9 @@ public class WeekBuilder {
         return weight;
     }
 
+    public Week build(){
+        return new Week(this);
+    }
 
 
     

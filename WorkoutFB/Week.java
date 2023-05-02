@@ -1,5 +1,6 @@
 package WorkoutFB;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Week {
@@ -8,7 +9,7 @@ public class Week {
     private final String goals;
     private final int weight;
     private final String activity;
-    private List<Day> days;
+    private List<Day> days = new LinkedList<Day>();
 
     public Week(WeekBuilder wb){
         this.weekNum = wb.getWeekNum();
@@ -17,7 +18,7 @@ public class Week {
         this.activity = wb.getActivity();
     }
 
-    public int getWeekNum(){
+    public Integer getWeekNum(){
         return weekNum;
     }
 
@@ -65,6 +66,12 @@ public class Week {
             }
 
         return days;
+    }
+
+    public void createWorkouts(){
+        for(Day day: days){
+            day.createWorkouts();
+        }
     }
     
 }

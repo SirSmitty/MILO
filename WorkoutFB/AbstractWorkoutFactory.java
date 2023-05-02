@@ -1,6 +1,7 @@
 package WorkoutFB;
 
-import
+import PersonManagement.Person;
+
 
 public class AbstractWorkoutFactory implements Factory_IF {
 
@@ -15,16 +16,16 @@ public class AbstractWorkoutFactory implements Factory_IF {
         Workout_IF workout;
 
         switch (workoutType) {
-            case "lowWorkout":
+            case "Low (1 workout / week)":
                 workout = new LowWorkout(this.person);
                 break;
-            case "mediumWorkout":
+            case "Medium(2-3 workouts / week)":
                 workout = new MediumWorkout(this.person);
                 break;
-            case "highWorkout":
+            case "High (4-5 workouts / week)":
                 workout = new HighWorkout(this.person);
                 break;
-            case "extremelyHighWorkout":
+            case "Extremely High (6+ workouts / week)":
                 workout = new ExtremelyHighWorkout(this.person);
                 break;
             default:

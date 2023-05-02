@@ -175,7 +175,6 @@ public class CTPanel extends JPanel {
 
         public Person changePerson(UserManager um, int index) {
                 return um.getPerson(index);
-
         }
 
         public boolean getInit() {

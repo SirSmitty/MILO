@@ -21,11 +21,11 @@ public class ExtremelyHighWorkout implements Workout_IF{
     @Override
     public void calculateWorkouts() {
         for(int i = 0; i < 4; i++){
-            workoutWeeks.add(new Week(new WeekBuilder(i+1)
+            workoutWeeks.add(new WeekBuilder(i+1)
             .withGoals(goals)
             .withActivity(activity)
             .withWeight(weight)
-            ));
+            .build());
         }
     }
 
