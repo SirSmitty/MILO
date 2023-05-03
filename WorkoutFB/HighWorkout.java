@@ -1,12 +1,13 @@
 package WorkoutFB;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import PersonManagement.Person;
 
 public class HighWorkout implements Workout_IF{
 
-    private List<Week> workoutWeeks;
+    private List<Week> workoutWeeks = new LinkedList<Week>();
 
     private String goals;
     private String activity;

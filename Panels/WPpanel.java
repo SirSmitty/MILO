@@ -27,6 +27,7 @@ public class WPpanel extends JPanel {
     private Factory_IF workoutFactory;
     private Workout_IF activeWorkout;
     private Font customFont;
+    private JButton changeButton;
 
     public WPpanel() {
         setBackground(Color.WHITE);
@@ -56,6 +57,7 @@ public class WPpanel extends JPanel {
             activePerson = changePerson(uManager, 0);
             workoutFactory = new AbstractWorkoutFactory(activePerson);
             activeWorkout = workoutFactory.createWorkout(activePerson.getActivityLevel());
+            createMonthLabels();
 
             JComboBox<String> peopleBox = new JComboBox<>(uManager.getPeopleNames());
             peopleBox.setLocation(50, 50);
@@ -64,9 +66,8 @@ public class WPpanel extends JPanel {
             this.add(peopleBox);
 
             
-            createMonthLabels();
 
-            JButton changeButton = new JButton("<html><span color=\"white\">Change</span></html>");
+            changeButton = new JButton("<html><span color=\"white\">Change</span></html>");
             changeButton.setLocation(235, 50);
             changeButton.setSize(150, 45);
             changeButton.setFont(customFont);
@@ -75,7 +76,14 @@ public class WPpanel extends JPanel {
             changeButton.setBorderPainted(false);
             changeButton.addActionListener((ActionEvent e) -> {
                     activePerson = changePerson(uManager, peopleBox.getSelectedIndex());
+                    workoutFactory = new AbstractWorkoutFactory(activePerson);
                     activeWorkout = workoutFactory.createWorkout(activePerson.getActivityLevel());
+                    // this.revalidate();
+                    removeAll();
+                    this.repaint();
+                    this.add(peopleBox);
+                    this.add(backButton);
+                    this.add(changeButton);
                     createMonthLabels();
             });
             this.add(changeButton);
@@ -97,7 +105,7 @@ public class WPpanel extends JPanel {
 
     public Person changePerson(UserManager um, int index) {
         return um.getPerson(index);
-}
+    }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -108,22 +116,24 @@ public class WPpanel extends JPanel {
         backgroundFinal.paintIcon(this, g, 0, 0);
     }
 
-
     public void createMonthLabels(){
-
         
         activeWorkout.calculateWorkouts();
         List<Week> workoutWeeks = activeWorkout.getMonth();
         int startX = 50;
         int startY = 100;
 
+        int i = 0;
         for(Week week : workoutWeeks){
+            if(i%2 != 0){
+                startX+=300;
+            }
             JLabel weekNumberLabel = new JLabel("Week " + week.getWeekNum().toString());
             weekNumberLabel.setLocation(startX, startY);
             weekNumberLabel.setSize(150, 50);
             weekNumberLabel.setFont(customFont);
-            startY+=20;
             this.add(weekNumberLabel);
+            startY+=20;
 
             List<Day> days = week.generateWorkoutWeek();
             for(Day day: days){
@@ -147,9 +157,11 @@ public class WPpanel extends JPanel {
                 }
                 
             }
-            
-
-            
+            i++;
+            startX = 50;
+            if(i%2 !=0){
+                startY = 100;
+            }
         }
         
     }
