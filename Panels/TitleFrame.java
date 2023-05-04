@@ -28,12 +28,17 @@ public class TitleFrame extends JFrame {
         CTPanel CTPanel = new CTPanel();
         DFTpanel DFTpanel = new DFTpanel();
         WPpanel WPpanel = new WPpanel();
+        JScrollPane wpScrollPane = new JScrollPane(WPpanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED );
+
+        //adjust for scroll speed
+        wpScrollPane.getVerticalScrollBar().setUnitIncrement(35);
 
         add(mainPanel, "main");
         add(personPanel, "person");
         add(CTPanel, "Calorie Tracker");
         add(DFTpanel, "Daily Intake");
-        add(WPpanel, "Workout Plan");
+        add(wpScrollPane, "Workout Plan");
+        
 
         mainPanel.getPersonButton().addActionListener((ActionEvent e) -> {
             cards.show(container, "person");
@@ -76,7 +81,9 @@ public class TitleFrame extends JFrame {
                 }
 
                 cards.show(container, "Workout Plan");
-                setSize(1000, 1000);
+
+                //keep width as is
+                setSize(920, 500);
             } else {
                 ErrorFrame noPersonError = new ErrorFrame("You have not added a person, please do so");
                 noPersonError.setVisible(true);
