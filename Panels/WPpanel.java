@@ -170,7 +170,7 @@ public class WPpanel extends JPanel {
                     activity.setSize(400, 50);
                     activity.setFont(customFont);
                     this.add(activity);
-                    startY+=40;
+                    startY+=35;
                 }
             }
             if(i%2 != 0){
