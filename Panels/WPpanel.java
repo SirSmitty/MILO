@@ -140,32 +140,34 @@ public class WPpanel extends JPanel {
                 startY = startYodd;
             }
 
+
+            // "<html><span color=\"#414444\">Week >" + week.getWeekNum().toString() + "</span></html>"
             
-            JLabel weekNumberLabel = new JLabel("Week " + week.getWeekNum().toString());
+            JLabel weekNumberLabel = new JLabel("<html><span bgcolor=\"white\" color=\"#d3605a\">Week " + week.getWeekNum().toString() + "</span></html>");
             weekNumberLabel.setLocation(startX, startY);
             weekNumberLabel.setSize(150, 50);
             weekNumberLabel.setFont(customFont);
             this.add(weekNumberLabel);
-            startY+=20;
+            startY+=35;
 
             List<Day> days = week.generateWorkoutWeek();
             for(Day day: days){
                 day.createWorkouts();
-                JLabel dayOfWeek = new JLabel(day.getDay());
+                JLabel dayOfWeek = new JLabel("<html><span bgcolor=\"white\" color=\"#8c8861\">" + day.getDay() + "</span></html>");
                 dayOfWeek.setLocation(startX, startY);
                 dayOfWeek.setSize(150,50);
                 dayOfWeek.setFont(customFont);
                 this.add(dayOfWeek);
-                startY+=20;
+                startY+=35;
 
                 String[] workouts = day.getWorkOuts();
                 for(String workout: workouts){
-                    JLabel activity = new JLabel(workout);
+                    JLabel activity = new JLabel("<html><span bgcolor=\"white\" color=\"#414444\">" + workout + "</span></html>");
                     activity.setLocation(startX, startY);
                     activity.setSize(300, 50);
                     activity.setFont(customFont);
                     this.add(activity);
-                    startY+=20;
+                    startY+=35;
                 }
                 
             }
