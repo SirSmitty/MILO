@@ -120,14 +120,25 @@ public class WPpanel extends JPanel {
         
         activeWorkout.calculateWorkouts();
         List<Week> workoutWeeks = activeWorkout.getMonth();
-        int startX = 50;
+        int startXodd = 50;
+        int startXeven = 400;
         int startY = 100;
+
+        int startX;
 
         int i = 0;
         for(Week week : workoutWeeks){
             if(i%2 != 0){
-                startX+=300;
+                startX = startXeven;
             }
+            else{
+                startX = startXodd;
+            }
+
+            if(i == 1){
+                startY = 100;
+            }
+            
             JLabel weekNumberLabel = new JLabel("Week " + week.getWeekNum().toString());
             weekNumberLabel.setLocation(startX, startY);
             weekNumberLabel.setSize(150, 50);
@@ -158,10 +169,10 @@ public class WPpanel extends JPanel {
                 
             }
             i++;
-            startX = 50;
-            if(i%2 !=0){
-                startY = 100;
-            }
+            // startX = 50;
+            // if(i%2 !=0){
+            //     startY = 100;
+            // }
         }
         
     }
