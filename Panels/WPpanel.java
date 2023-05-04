@@ -114,6 +114,7 @@ public class WPpanel extends JPanel {
         Image backgroundResizeImage = backgroundImage.getScaledInstance(500, 700, java.awt.Image.SCALE_SMOOTH);
         ImageIcon backgroundFinal = new ImageIcon(backgroundResizeImage);
         backgroundFinal.paintIcon(this, g, 0, 0);
+        backgroundFinal.paintIcon(this, g, 500, 0);
     }
 
     public void createMonthLabels(){
@@ -149,7 +150,6 @@ public class WPpanel extends JPanel {
 
             List<Day> days = week.generateWorkoutWeek();
             for(Day day: days){
-                System.out.println(day.getDay());
                 day.createWorkouts();
                 JLabel dayOfWeek = new JLabel(day.getDay());
                 dayOfWeek.setLocation(startX, startY);
