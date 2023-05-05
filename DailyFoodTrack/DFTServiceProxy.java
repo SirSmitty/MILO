@@ -2,12 +2,12 @@ package DailyFoodTrack;
 import java.net.URL;
 import java.util.List;
 
-public class DailyFoodTracker implements DFTService_IF{
+public class DFTServiceProxy implements DFTService_IF{
 
     private DFTService_IF api;
 
-    public DailyFoodTracker() {
-        api = new Apiconnect();
+    public DFTServiceProxy(DFTService_IF api) {
+        this.api = api;
     }
 
     public String connectToApi(String foodString){

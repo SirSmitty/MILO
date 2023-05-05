@@ -8,13 +8,13 @@ import java.util.List;
 
 import org.json.*;
 
-public class Apiconnect extends Object implements DFTService_IF {
+public class DFTService extends Object implements DFTService_IF {
 
     private String API_KEY;
     private List<FoodItem> foodList;
     private List<String> foodNames;
 
-    public Apiconnect() {
+    public DFTService() {
         API_KEY = "3R9jgQ1YN5sjedHi54WfPDwGO1Pof3d1dAwr4NWQ";
         foodList = new LinkedList<FoodItem>();
         foodNames = new LinkedList<String>();
