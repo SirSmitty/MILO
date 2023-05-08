@@ -3,11 +3,11 @@ package WorkoutFB;
 import PersonManagement.Person;
 
 
-public class AbstractWorkoutFactory implements Factory_IF {
+public class WorkoutFactory implements Factory_IF {
 
     private Person person;
 
-    public AbstractWorkoutFactory(Person p) {
+    public WorkoutFactory(Person p) {
         this.person = p;
     }
 

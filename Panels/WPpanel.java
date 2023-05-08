@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 import PersonManagement.Person;
 import PersonManagement.UserManager;
-import WorkoutFB.AbstractWorkoutFactory;
+import WorkoutFB.WorkoutFactory;
 import WorkoutFB.Day;
 import WorkoutFB.Factory_IF;
 import WorkoutFB.Week;
@@ -57,7 +57,7 @@ public class WPpanel extends JPanel {
             this.add(backButton);
 
             activePerson = changePerson(uManager, 0);
-            workoutFactory = new AbstractWorkoutFactory(activePerson);
+            workoutFactory = new WorkoutFactory(activePerson);
             activeWorkout = workoutFactory.createWorkout(activePerson.getActivityLevel());
             createMonthLabels();
 
@@ -76,7 +76,7 @@ public class WPpanel extends JPanel {
             changeButton.setBorderPainted(false);
             changeButton.addActionListener((ActionEvent e) -> {
                 activePerson = changePerson(uManager, peopleBox.getSelectedIndex());
-                workoutFactory = new AbstractWorkoutFactory(activePerson);
+                workoutFactory = new WorkoutFactory(activePerson);
                 activeWorkout = workoutFactory.createWorkout(activePerson.getActivityLevel());
                 // this.revalidate();
                 removeAll();
