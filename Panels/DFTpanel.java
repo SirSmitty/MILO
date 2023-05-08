@@ -57,8 +57,8 @@ public class DFTpanel extends JPanel {
             calculator.setPersonforCalc(activePerson);
             calculator.calculateMacros();
 
-            DFTService_IF api = new DFTService();
-            DFTService_IF dft = new DFTServiceProxy(api);
+            DFTService_IF dft = new DFTServiceProxy();
+            dft.newInstance();
 
             // Macro labels stuff
             JLabel totalCaloriesL = new JLabel(

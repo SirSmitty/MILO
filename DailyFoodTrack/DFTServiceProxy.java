@@ -6,8 +6,11 @@ public class DFTServiceProxy implements DFTService_IF{
 
     private DFTService_IF api;
 
-    public DFTServiceProxy(DFTService_IF api) {
-        this.api = api;
+    public DFTServiceProxy() {
+    }
+
+    public void newInstance(){
+        api = new DFTService();
     }
 
     public String connectToApi(String foodString){

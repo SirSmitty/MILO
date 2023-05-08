@@ -20,6 +20,8 @@ public class DFTService extends Object implements DFTService_IF {
         foodNames = new LinkedList<String>();
     }
 
+    public void newInstance(){}
+
     public String connectToApi(String foodString) {
 
         URL url = createURL(foodString);

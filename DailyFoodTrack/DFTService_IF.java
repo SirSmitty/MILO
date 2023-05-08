@@ -25,5 +25,7 @@ public interface DFTService_IF {
 
     public void addFood(FoodItem food);
 
+    public void newInstance();
+
 
 }
