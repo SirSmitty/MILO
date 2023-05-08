@@ -1,4 +1,5 @@
 package PersonManagement;
+
 public class Person {
 
     private String name;
@@ -23,7 +24,6 @@ public class Person {
         setWeight(195);
         setActivityLevel("High (4-5 workouts / week)");
         setGoals("Maintain");
-        
 
     }
 
@@ -91,19 +91,19 @@ public class Person {
         return currentFats;
     }
 
-    public void setCurCal(int n){
+    public void setCurCal(int n) {
         currentCalories = n;
     }
 
-    public void setCurProtein(int n){
+    public void setCurProtein(int n) {
         currentProtein = n;
     }
 
-    public void setCurCarbs(int n){
+    public void setCurCarbs(int n) {
         currentCarbs = n;
     }
 
-    public void setCurFats(int n){
+    public void setCurFats(int n) {
         currentFats = n;
     }
 
@@ -135,37 +135,36 @@ public class Person {
         goals = g;
     }
 
-    public void addToCalories(int cal){
-        currentCalories+=cal;
+    public void addToCalories(int cal) {
+        currentCalories += cal;
     }
 
-    public void addToProtein(int pro){
-        currentProtein+=pro;
+    public void addToProtein(int pro) {
+        currentProtein += pro;
     }
 
-    public void addToCarbs(int carb){
-        currentCarbs+=carb;
+    public void addToCarbs(int carb) {
+        currentCarbs += carb;
     }
 
-    public void addToFats(int fat){
-        currentFats+=fat;
+    public void addToFats(int fat) {
+        currentFats += fat;
     }
 
-
-    public void subFromCalories(int cal){
-        currentCalories-=cal;
+    public void subFromCalories(int cal) {
+        currentCalories -= cal;
     }
 
-    public void subFromProtein(int pro){
-        currentProtein-=pro;
+    public void subFromProtein(int pro) {
+        currentProtein -= pro;
     }
 
-    public void subFromCarbs(int carb){
-        currentCarbs-=carb;
+    public void subFromCarbs(int carb) {
+        currentCarbs -= carb;
     }
 
-    public void subFromFats(int fat){
-        currentFats-=fat;
+    public void subFromFats(int fat) {
+        currentFats -= fat;
     }
 
 }
