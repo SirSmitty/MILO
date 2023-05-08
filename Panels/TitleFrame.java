@@ -28,10 +28,11 @@ public class TitleFrame extends JFrame {
         CTPanel CTPanel = new CTPanel();
         DFTpanel DFTpanel = new DFTpanel();
         WPpanel WPpanel = new WPpanel();
-        JScrollPane wpScrollPane = new JScrollPane(WPpanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED );
+
+        JScrollPane wpScrollPane = new JScrollPane(WPpanel);
 
         //adjust for scroll speed
-        wpScrollPane.getVerticalScrollBar().setUnitIncrement(35);
+        wpScrollPane.getVerticalScrollBar().setUnitIncrement(20);
 
         add(mainPanel, "main");
         add(personPanel, "person");

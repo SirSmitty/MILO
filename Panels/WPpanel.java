@@ -39,8 +39,8 @@ public class WPpanel extends JPanel {
 
         // sets up Back Button
         backButton = new JButton("<-");
-        backButton.setLocation(27, 590);
-        backButton.setSize(60, 50);
+        backButton.setLocation(400, 50);
+        backButton.setSize(60, 45);
         backButton.setBackground(new Color(211, 96, 90));
         backButton.setForeground(Color.WHITE);
         backButton.setOpaque(true);
